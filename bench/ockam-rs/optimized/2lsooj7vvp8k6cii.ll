@@ -1149,7 +1149,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h29d3
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = atomicrmw xchg ptr %4, i8 1 seq_cst, align 1
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %19
+  br i1 %.not, label %6, label %20
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8, !align !104, !noundef !20
@@ -1157,75 +1157,77 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h29d3
   %9 = load ptr, ptr %8, align 8
   store ptr null, ptr %0, align 8
   %.not15 = icmp eq ptr %7, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not15, label %18, label %11
+  br i1 %.not15, label %18, label %10
 
-11:                                               ; preds = %6
-  invoke void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %10, i8 noundef 0, i8 noundef 4)
+10:                                               ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  invoke void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %11, i8 noundef 0, i8 noundef 4)
           to label %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit" unwind label %14
 
-"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit": ; preds = %11
+"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit": ; preds = %10
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !20, !noundef !20
   tail call void %13(ptr noundef %9)
-  br label %19
+  br label %20
 
-14:                                               ; preds = %11
+14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h70f791649465f35dE"(ptr nonnull %7, ptr %9) #29
           to label %.thread42 unwind label %16
 
-16:                                               ; preds = %14, %31
+16:                                               ; preds = %14, %32
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #30
   unreachable
 
-.thread42:                                        ; preds = %14, %31
-  %.pn20 = phi { ptr, i32 } [ %32, %31 ], [ %15, %14 ]
+.thread42:                                        ; preds = %14, %32
+  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
   resume { ptr, i32 } %.pn20
 
 18:                                               ; preds = %6
-  tail call void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %10, i8 noundef 0, i8 noundef 4), !noalias !115
-  br label %19
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %19, i8 noundef 0, i8 noundef 4), !noalias !115
+  br label %20
 
-19:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit", %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %21, 0
-  br i1 %.not47, label %22, label %34
+20:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit", %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
+  %.not47 = icmp eq i8 %22, 0
+  br i1 %.not47, label %23, label %35
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %23, ptr %2, align 8
-  %24 = load ptr, ptr %23, align 8, !align !104, !noundef !20
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8
-  store ptr null, ptr %23, align 8
-  %27 = icmp eq ptr %24, null
-  br i1 %27, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit", label %28
+  store ptr %24, ptr %2, align 8
+  %25 = load ptr, ptr %24, align 8, !align !104, !noundef !20
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = load ptr, ptr %26, align 8
+  store ptr null, ptr %24, align 8
+  %28 = icmp eq ptr %25, null
+  br i1 %28, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit", label %29
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
-  %30 = load ptr, ptr %29, align 8, !nonnull !20, !noundef !20
-  invoke void %30(ptr noundef %26)
-          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit" unwind label %31
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds i8, ptr %25, i64 24
+  %31 = load ptr, ptr %30, align 8, !nonnull !20, !noundef !20
+  invoke void %31(ptr noundef %27)
+          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit" unwind label %32
 
-31:                                               ; preds = %28
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
           to label %.thread42 unwind label %16
 
-"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit": ; preds = %22, %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %33, i8 noundef 0, i8 noundef 4), !noalias !120
+"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit": ; preds = %23, %29
+  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  tail call void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %34, i8 noundef 0, i8 noundef 4), !noalias !120
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %19, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit"
+35:                                               ; preds = %20, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4884038a470ad0e1E.exit"
   ret void
 }
 
@@ -3743,6 +3745,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   br i1 %.not4.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d42e0f064cae5bE.exit", label %20
 
 20:                                               ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !499
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !499
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !499
@@ -3774,6 +3777,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   br i1 %.not.i7, label %.noexc5, label %28
 
 28:                                               ; preds = %.noexc4
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   %29 = invoke noundef align 8 dereferenceable(8) ptr @_ZN12tracing_core8metadata8Metadata5level17h123764718be49a0eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %27)
           to label %.noexc12 unwind label %85
 
@@ -5310,6 +5314,7 @@ common.resume:                                    ; preds = %57, %7
 33:                                               ; preds = %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !759)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !762)
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 8) ]
   %34 = getelementptr inbounds i8, ptr %31, i64 24
   %35 = load ptr, ptr %34, align 8, !noalias !765, !nonnull !20, !noundef !20
   %36 = getelementptr inbounds i8, ptr %0, i64 184

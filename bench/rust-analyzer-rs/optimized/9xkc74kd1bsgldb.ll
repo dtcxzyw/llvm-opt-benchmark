@@ -42525,16 +42525,16 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #57
-          to label %25 unwind label %23
+          to label %27 unwind label %25
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %5, align 8, !noundef !4
   %.not = icmp eq ptr %9, null
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   br i1 %.not, label %.thread, label %12
 
 .thread:                                          ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !25, !noundef !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %11, ptr %.sroa.42.0..sroa_idx, align 8
@@ -42543,49 +42543,52 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit": ; preds = %22, %17, %16, %12, %.thread
+"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit": ; preds = %24, %19, %18, %12, %.thread
   ret void
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %11, ptr %14, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %9, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %14, ptr %16, align 8
   store i8 27, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8993)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8996)
-  %15 = load i8, ptr %3, align 8, !range !474, !alias.scope !8999, !noundef !4
-  %.not.i.i = icmp eq i8 %15, 26
-  br i1 %.not.i.i, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit", label %16
+  %17 = load i8, ptr %3, align 8, !range !474, !alias.scope !8999, !noundef !4
+  %.not.i.i = icmp eq i8 %17, 26
+  br i1 %.not.i.i, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit", label %18
 
-16:                                               ; preds = %12
+18:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9000)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9003)
-  %cond.i.i.i.i = icmp eq i8 %15, 24
-  br i1 %cond.i.i.i.i, label %17, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit"
+  %cond.i.i.i.i = icmp eq i8 %17, 24
+  br i1 %cond.i.i.i.i, label %19, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit"
 
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+19:                                               ; preds = %18
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9006)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9009)
-  %19 = load ptr, ptr %18, align 8, !alias.scope !9012, !nonnull !4, !noundef !4
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !9012
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %22, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit"
+  %21 = load ptr, ptr %20, align 8, !alias.scope !9012, !nonnull !4, !noundef !4
+  %22 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !9012
+  %23 = icmp eq i64 %22, 1
+  br i1 %23, label %24, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit"
 
-22:                                               ; preds = %17
+24:                                               ; preds = %19
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.18266587286026290509(i8 noundef 2), !noalias !9012
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha78a11c393c5c4dfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha78a11c393c5c4dfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
   br label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit"
 
-23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %6
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
 
-25:                                               ; preds = %6
+27:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -42660,6 +42663,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc795888238125b10E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -42750,6 +42754,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2cbf9de0d7ac2719E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -42844,6 +42849,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbd560a274a9f8340E.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   store ptr %1, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %42, ptr %43, align 8
@@ -42935,6 +42941,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h3f2f704dec8e48edE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43029,6 +43036,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h81df814ee520425fE.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43125,6 +43133,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc8f98addd689a72bE.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43217,6 +43226,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfae272b5b882a587E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43307,6 +43317,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7cac0e0db644acacE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43397,6 +43408,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hde6188314134b783E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43487,6 +43499,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc86ee3d8561af2ccE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43577,6 +43590,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h91f51e397b88fee5E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43667,6 +43681,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h76e15ba89a58e417E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43757,6 +43772,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdc73c05724d205d8E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43847,6 +43863,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5f22de72dfc71a03E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -43941,6 +43958,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb0c2952b91d275d0E.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44037,6 +44055,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf04b3b03647d1030E.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44129,6 +44148,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7314c068b4fe0f15E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44219,6 +44239,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h71241e61cb4eb60bE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44309,6 +44330,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h797853986c7f9dbaE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44399,6 +44421,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6493b733e27d6c1aE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44489,6 +44512,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h53232074bd266c27E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44579,6 +44603,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca4e0e47afc4dcebE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44673,6 +44698,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5924b0e36ad2a7d5E.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44769,6 +44795,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h3bc84a8b2d7db83cE.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44861,6 +44888,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hec6b6de9a96d47f9E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -44951,6 +44979,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4d4058b92ab14968E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45041,6 +45070,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h225408f5d72542f1E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45131,6 +45161,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd7223f3ca8b33014E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45221,6 +45252,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h30d297d53e6fd190E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45311,6 +45343,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he6e2379ee05562fcE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45401,6 +45434,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h645c651686fbf1a6E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45491,6 +45525,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he7bf12fff82f236fE.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45580,6 +45615,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2d8466c21bc066e4E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45670,6 +45706,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h3c41ef591ab35857E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45707,24 +45744,24 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
   %13 = call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h15ade3606e872d3cE.llvm.5537595614626420043"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !9939
   %14 = icmp eq ptr %13, null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br i1 %14, label %17, label %15
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 3, ptr %16, align 8
-  br label %19
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
+  store i32 3, ptr %.sroa.5.0..sroa_idx, align 8
+  br label %18
 
-17:                                               ; preds = %4
-  %18 = inttoptr i64 %2 to ptr
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+16:                                               ; preds = %4
+  %17 = inttoptr i64 %2 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  br label %19
+  br label %18
 
-19:                                               ; preds = %17, %15
-  %.sink = phi ptr [ %18, %17 ], [ %13, %15 ]
+18:                                               ; preds = %16, %15
+  %.sink = phi ptr [ %17, %16 ], [ %13, %15 ]
   store ptr %1, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %20, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   ret void
 }
 
@@ -45751,6 +45788,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   store i32 11, ptr %0, align 8
   br label %20
 
@@ -45840,6 +45878,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 38:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h79de986618cf19e7E.llvm.5537595614626420043.exit.i.i"
   %39 = getelementptr inbounds i64, ptr %14, i64 %30
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45934,6 +45973,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 
 41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h1145cf035a49eda3E.llvm.5537595614626420043.exit.i.i"
   %42 = getelementptr inbounds i64, ptr %15, i64 %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16

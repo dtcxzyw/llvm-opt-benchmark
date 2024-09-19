@@ -12862,6 +12862,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit88.i: ; p
   %249 = load ptr, ptr %248, align 8, !noalias !2003, !nonnull !10, !noundef !10
   %250 = getelementptr inbounds i8, ptr %39, i64 16
   %251 = load i64, ptr %250, align 8, !noalias !2003, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %185, i64 8) ]
   %252 = load ptr, ptr %237, align 8, !noalias !2003, !nonnull !10, !noundef !10
   %253 = load i64, ptr %239, align 8, !noalias !2003, !noundef !10
   %254 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly4expr16prefer_next_line17hbb944e0f344ce9bfE(ptr noalias noundef nonnull readonly align 1 %249, i64 noundef %251, ptr noalias noundef nonnull readonly align 1 %252, i64 noundef %253, i8 noundef %6)
@@ -13834,6 +13835,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit85.i.i: ;
   %256 = load ptr, ptr %255, align 8, !noalias !2250, !nonnull !10, !noundef !10
   %257 = getelementptr inbounds i8, ptr %41, i64 16
   %258 = load i64, ptr %257, align 8, !noalias !2250, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %193, i64 8) ]
   %259 = load ptr, ptr %244, align 8, !noalias !2250, !nonnull !10, !noundef !10
   %260 = load i64, ptr %246, align 8, !noalias !2250, !noundef !10
   %261 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly4expr16prefer_next_line17hbb944e0f344ce9bfE(ptr noalias noundef nonnull readonly align 1 %256, i64 noundef %258, ptr noalias noundef nonnull readonly align 1 %259, i64 noundef %260, i8 noundef %6)
@@ -14968,6 +14970,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit88.i.i: ;
   %256 = load ptr, ptr %255, align 8, !noalias !2532, !nonnull !10, !noundef !10
   %257 = getelementptr inbounds i8, ptr %41, i64 16
   %258 = load i64, ptr %257, align 8, !noalias !2532, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %194, i64 8) ]
   %259 = load ptr, ptr %244, align 8, !noalias !2532, !nonnull !10, !noundef !10
   %260 = load i64, ptr %246, align 8, !noalias !2532, !noundef !10
   %261 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly4expr16prefer_next_line17hbb944e0f344ce9bfE(ptr noalias noundef nonnull readonly align 1 %256, i64 noundef %258, ptr noalias noundef nonnull readonly align 1 %259, i64 noundef %260, i8 noundef %6)
@@ -16102,6 +16105,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit88.i.i: ;
   %256 = load ptr, ptr %255, align 8, !noalias !2814, !nonnull !10, !noundef !10
   %257 = getelementptr inbounds i8, ptr %41, i64 16
   %258 = load i64, ptr %257, align 8, !noalias !2814, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %194, i64 8) ]
   %259 = load ptr, ptr %244, align 8, !noalias !2814, !nonnull !10, !noundef !10
   %260 = load i64, ptr %246, align 8, !noalias !2814, !noundef !10
   %261 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly4expr16prefer_next_line17hbb944e0f344ce9bfE(ptr noalias noundef nonnull readonly align 1 %256, i64 noundef %258, ptr noalias noundef nonnull readonly align 1 %259, i64 noundef %260, i8 noundef %6)
@@ -17421,6 +17425,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit99.i.i: ;
   %293 = load ptr, ptr %292, align 8, !noalias !3111, !nonnull !10, !noundef !10
   %294 = getelementptr inbounds i8, ptr %46, i64 16
   %295 = load i64, ptr %294, align 8, !noalias !3111, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %225, i64 8) ]
   %296 = load ptr, ptr %281, align 8, !noalias !3111, !nonnull !10, !noundef !10
   %297 = load i64, ptr %283, align 8, !noalias !3111, !noundef !10
   %298 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly4expr16prefer_next_line17hbb944e0f344ce9bfE(ptr noalias noundef nonnull readonly align 1 %293, i64 noundef %295, ptr noalias noundef nonnull readonly align 1 %296, i64 noundef %297, i8 noundef %6)
@@ -18722,6 +18727,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit90.i.i: ;
   %258 = load ptr, ptr %257, align 8, !noalias !3466, !nonnull !10, !noundef !10
   %259 = getelementptr inbounds i8, ptr %41, i64 16
   %260 = load i64, ptr %259, align 8, !noalias !3466, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %197, i64 8) ]
   %261 = load ptr, ptr %246, align 8, !noalias !3466, !nonnull !10, !noundef !10
   %262 = load i64, ptr %248, align 8, !noalias !3466, !noundef !10
   %263 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly4expr16prefer_next_line17hbb944e0f344ce9bfE(ptr noalias noundef nonnull readonly align 1 %258, i64 noundef %260, ptr noalias noundef nonnull readonly align 1 %261, i64 noundef %262, i8 noundef %6)
@@ -19854,6 +19860,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit85.i.i: ;
   %256 = load ptr, ptr %255, align 8, !noalias !3750, !nonnull !10, !noundef !10
   %257 = getelementptr inbounds i8, ptr %41, i64 16
   %258 = load i64, ptr %257, align 8, !noalias !3750, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %193, i64 8) ]
   %259 = load ptr, ptr %244, align 8, !noalias !3750, !nonnull !10, !noundef !10
   %260 = load i64, ptr %246, align 8, !noalias !3750, !noundef !10
   %261 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly4expr16prefer_next_line17hbb944e0f344ce9bfE(ptr noalias noundef nonnull readonly align 1 %256, i64 noundef %258, ptr noalias noundef nonnull readonly align 1 %259, i64 noundef %260, i8 noundef %6)
@@ -28202,6 +28209,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %2
   store i64 %246, ptr %248, align 8, !alias.scope !5123
   %249 = getelementptr inbounds i8, ptr %77, i64 24
   store i64 %246, ptr %249, align 8, !alias.scope !5123
+  call void @llvm.assume(i1 true) [ "align"(ptr %224, i64 8) ]
   call void @"_ZN15rustfmt_nightly8patterns83_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..Pat$GT$7rewrite17he29304a0f45668bdE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %224, ptr noundef nonnull align 8 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %77)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77)
   %250 = load i64, ptr %78, align 8, !range !105, !noundef !10
@@ -28221,6 +28229,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %2
   %254 = load ptr, ptr %.sroa.430.0..sroa_idx, align 8, !nonnull !10, !noundef !10
   %255 = getelementptr inbounds i8, ptr %79, i64 16
   %256 = load i64, ptr %255, align 8, !noundef !10
+  call void @llvm.assume(i1 true) [ "align"(ptr %224, i64 8) ]
   %257 = getelementptr inbounds i8, ptr %224, i64 48
   %.sroa.032.0.copyload = load i64, ptr %257, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
@@ -31965,6 +31974,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   br label %50
 
 77:                                               ; preds = %50
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %78 = getelementptr inbounds i8, ptr %52, i64 48
   %.sroa.04.0.copyload = load i64, ptr %78, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -35689,6 +35699,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   store i64 %349, ptr %351, align 8, !alias.scope !6434
   %352 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 %349, ptr %352, align 8, !alias.scope !6434
+  call void @llvm.assume(i1 true) [ "align"(ptr %261, i64 8) ]
   invoke void @"_ZN15rustfmt_nightly5types82_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..Ty$GT$7rewrite17h72ea48e401acb166E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %261, ptr noundef nonnull align 8 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %27)
           to label %353 unwind label %83
 

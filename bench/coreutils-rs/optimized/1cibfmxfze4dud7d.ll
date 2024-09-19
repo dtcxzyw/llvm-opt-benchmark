@@ -3109,108 +3109,115 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = icmp eq i64 %6, %5
-  br i1 %7, label %"_ZN4core3ptr174drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$uucore..features..fs..OwningComponent$GT$$GT$17h31f1bb00f6861f72E.llvm.815817287122797008.exit", label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h7f5c9861386adaaeE.llvm.815817287122797008.exit"
+  br i1 %7, label %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit.thread", label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h7f5c9861386adaaeE.llvm.815817287122797008.exit"
+
+"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit.thread": ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !alias.scope !959, !noalias !962, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
+  br label %"_ZN4core3ptr174drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$uucore..features..fs..OwningComponent$GT$$GT$17h31f1bb00f6861f72E.llvm.815817287122797008.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h7f5c9861386adaaeE.llvm.815817287122797008.exit": ; preds = %1
-  %8 = sub i64 %6, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !969, !noalias !972, !noundef !4
-  %11 = add i64 %10, %5
-  %12 = load i64, ptr %0, align 8, !alias.scope !973, !noalias !972, !noundef !4
-  %.not.i.i.i = icmp ult i64 %11, %12
-  %13 = select i1 %.not.i.i.i, i64 0, i64 %12
-  %.0.i.i.i = sub nuw i64 %11, %13
-  %14 = sub i64 %12, %.0.i.i.i
-  %.not.i.i = icmp ult i64 %14, %8
-  %15 = add i64 %.0.i.i.i, %8
-  %.sroa.5.0.i = select i1 %.not.i.i, i64 %12, i64 %15
-  %.sroa.11.0.i = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 %14)
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !alias.scope !959, !noalias !962, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds { i64, [3 x i64] }, ptr %17, i64 %.0.i.i.i
-  %19 = sub i64 %.sroa.5.0.i, %.0.i.i.i
+  %10 = sub i64 %6, %5
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8, !alias.scope !969, !noalias !972, !noundef !4
+  %13 = add i64 %12, %5
+  %14 = load i64, ptr %0, align 8, !alias.scope !973, !noalias !972, !noundef !4
+  %.not.i.i.i = icmp ult i64 %13, %14
+  %15 = select i1 %.not.i.i.i, i64 0, i64 %14
+  %.0.i.i.i = sub nuw i64 %13, %15
+  %16 = sub i64 %14, %.0.i.i.i
+  %.not.i.i = icmp ult i64 %16, %10
+  %17 = add i64 %.0.i.i.i, %10
+  %.sroa.5.0.i = select i1 %.not.i.i, i64 %14, i64 %17
+  %.sroa.11.0.i = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 %16)
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !alias.scope !959, !noalias !962, !nonnull !4, !noundef !4
+  %20 = getelementptr inbounds { i64, [3 x i64] }, ptr %19, i64 %.0.i.i.i
+  %21 = sub i64 %.sroa.5.0.i, %.0.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
-  %20 = icmp eq i64 %.sroa.5.0.i, %.0.i.i.i
-  br i1 %20, label %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit", label %.lr.ph.i
+  %22 = icmp eq i64 %.sroa.5.0.i, %.0.i.i.i
+  br i1 %22, label %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h7f5c9861386adaaeE.llvm.815817287122797008.exit", %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i"
-  %.07.i = phi i64 [ %22, %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i" ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h7f5c9861386adaaeE.llvm.815817287122797008.exit" ]
-  %21 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %18, i64 0, i64 %.07.i
-  %22 = add nuw i64 %.07.i, 1
+  %.07.i = phi i64 [ %24, %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i" ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h7f5c9861386adaaeE.llvm.815817287122797008.exit" ]
+  %23 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %20, i64 0, i64 %.07.i
+  %24 = add nuw i64 %.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !977)
-  %23 = load i64, ptr %21, align 8, !range !12, !alias.scope !980, !noundef !4
-  switch i64 %23, label %24 [
-    i64 0, label %28
+  %25 = load i64, ptr %23, align 8, !range !12, !alias.scope !980, !noundef !4
+  switch i64 %25, label %26 [
+    i64 0, label %30
     i64 1, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i"
     i64 2, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i"
     i64 3, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i"
   ]
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
-  %26 = load i64, ptr %25, align 8, !alias.scope !981, !noalias !994, !noundef !4
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i"
+26:                                               ; preds = %.lr.ph.i
+  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %28 = load i64, ptr %27, align 8, !alias.scope !981, !noalias !994, !noundef !4
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i"
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds i8, ptr %21, i64 8
-  %30 = load i64, ptr %29, align 8, !alias.scope !996, !noalias !1009, !noundef !4
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i"
+30:                                               ; preds = %.lr.ph.i
+  %31 = getelementptr inbounds i8, ptr %23, i64 8
+  %32 = load i64, ptr %31, align 8, !alias.scope !996, !noalias !1009, !noundef !4
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i"
 
-"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i": ; preds = %28, %24
-  %.sink3.i.i = phi i64 [ %26, %24 ], [ %30, %28 ]
-  %32 = getelementptr inbounds i8, ptr %21, i64 16
-  %33 = load ptr, ptr %32, align 8, !alias.scope !980, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %.sink3.i.i, i64 noundef 1) #15, !noalias !980
+"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i": ; preds = %30, %26
+  %.sink3.i.i = phi i64 [ %28, %26 ], [ %32, %30 ]
+  %34 = getelementptr inbounds i8, ptr %23, i64 16
+  %35 = load ptr, ptr %34, align 8, !alias.scope !980, !noalias !4, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %.sink3.i.i, i64 noundef 1) #15, !noalias !980
   br label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i"
 
-"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i", %28, %24, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %34 = icmp eq i64 %22, %19
-  br i1 %34, label %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit", label %.lr.ph.i
+"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i", %30, %26, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %36 = icmp eq i64 %24, %21
+  br i1 %36, label %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit", label %.lr.ph.i
 
 "_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i", %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h7f5c9861386adaaeE.llvm.815817287122797008.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1011)
-  %.not = icmp ugt i64 %8, %14
+  %.not = icmp ugt i64 %10, %16
   br i1 %.not, label %.lr.ph.i.i.i, label %"_ZN4core3ptr174drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$uucore..features..fs..OwningComponent$GT$$GT$17h31f1bb00f6861f72E.llvm.815817287122797008.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit", %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i"
-  %.07.i.i.i = phi i64 [ %36, %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i" ], [ 0, %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit" ]
-  %35 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %17, i64 0, i64 %.07.i.i.i
-  %36 = add nuw i64 %.07.i.i.i, 1
+  %.07.i.i.i = phi i64 [ %38, %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i" ], [ 0, %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit" ]
+  %37 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %19, i64 0, i64 %.07.i.i.i
+  %38 = add nuw i64 %.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1014)
-  %37 = load i64, ptr %35, align 8, !range !12, !alias.scope !1017, !noalias !1018, !noundef !4
-  switch i64 %37, label %38 [
-    i64 0, label %42
+  %39 = load i64, ptr %37, align 8, !range !12, !alias.scope !1017, !noalias !1018, !noundef !4
+  switch i64 %39, label %40 [
+    i64 0, label %44
     i64 1, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i"
     i64 2, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i"
     i64 3, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i"
   ]
 
-38:                                               ; preds = %.lr.ph.i.i.i
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
-  %40 = load i64, ptr %39, align 8, !alias.scope !1023, !noalias !1036, !noundef !4
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i"
+40:                                               ; preds = %.lr.ph.i.i.i
+  %41 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = load i64, ptr %41, align 8, !alias.scope !1023, !noalias !1036, !noundef !4
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i"
 
-42:                                               ; preds = %.lr.ph.i.i.i
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
-  %44 = load i64, ptr %43, align 8, !alias.scope !1038, !noalias !1051, !noundef !4
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i"
+44:                                               ; preds = %.lr.ph.i.i.i
+  %45 = getelementptr inbounds i8, ptr %37, i64 8
+  %46 = load i64, ptr %45, align 8, !alias.scope !1038, !noalias !1051, !noundef !4
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i", label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i"
 
-"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i": ; preds = %42, %38
-  %.sink3.i.i.i.i = phi i64 [ %40, %38 ], [ %44, %42 ]
-  %46 = getelementptr inbounds i8, ptr %35, i64 16
-  %47 = load ptr, ptr %46, align 8, !alias.scope !1017, !noalias !1018, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %.sink3.i.i.i.i, i64 noundef 1) #15, !noalias !1053
+"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i": ; preds = %44, %40
+  %.sink3.i.i.i.i = phi i64 [ %42, %40 ], [ %46, %44 ]
+  %48 = getelementptr inbounds i8, ptr %37, i64 16
+  %49 = load ptr, ptr %48, align 8, !alias.scope !1017, !noalias !1018, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %49, i64 noundef %.sink3.i.i.i.i, i64 noundef 1) #15, !noalias !1053
   br label %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i"
 
-"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i", %42, %38, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
-  %48 = icmp eq i64 %36, %.sroa.11.0.i
-  br i1 %48, label %"_ZN4core3ptr174drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$uucore..features..fs..OwningComponent$GT$$GT$17h31f1bb00f6861f72E.llvm.815817287122797008.exit", label %.lr.ph.i.i.i
+"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h27fb931848284650E.exit.sink.split.i.i.i.i", %44, %40, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
+  %50 = icmp eq i64 %38, %.sroa.11.0.i
+  br i1 %50, label %"_ZN4core3ptr174drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$uucore..features..fs..OwningComponent$GT$$GT$17h31f1bb00f6861f72E.llvm.815817287122797008.exit", label %.lr.ph.i.i.i
 
-"_ZN4core3ptr174drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$uucore..features..fs..OwningComponent$GT$$GT$17h31f1bb00f6861f72E.llvm.815817287122797008.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i", %1, %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit"
+"_ZN4core3ptr174drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$uucore..features..fs..OwningComponent$GT$$GT$17h31f1bb00f6861f72E.llvm.815817287122797008.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$uucore..features..fs..OwningComponent$GT$17h91601203aeb2c13fE.llvm.815817287122797008.exit.i.i.i", %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit.thread", %"_ZN4core3ptr68drop_in_place$LT$$u5b$uucore..features..fs..OwningComponent$u5d$$GT$17h04ad062d5f38f873E.llvm.815817287122797008.exit"
   ret void
 }
 

@@ -9645,6 +9645,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he141448109b075e5E.exit.i
 71:                                               ; preds = %66
   %72 = icmp ne ptr %.sroa.0.sroa.5.0.copyload.i, null
   call void @llvm.assume(i1 %72)
+  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 8) ]
   %73 = load i64, ptr @_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit5__KEY17hc564e09eac16813cE, align 8, !range !536, !noalias !2067, !noundef !4
   %trunc.i.i.i.i10.i = trunc nuw i64 %73 to i1
   br i1 %trunc.i.i.i.i10.i, label %77, label %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he141448109b075e5E.exit.i.i11.i
@@ -14459,6 +14460,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
 
 149:                                              ; preds = %79
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %34)
+  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 8) ]
   %150 = getelementptr inbounds i8, ptr %.tr732, i64 16
   %151 = load ptr, ptr %150, align 8, !nonnull !4, !noundef !4
   %152 = getelementptr inbounds i8, ptr %.tr732, i64 24
@@ -15907,6 +15909,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %79
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %113, i64 8) ]
   call void @_ZN4just9evaluator9Evaluator19evaluate_expression17h0b5d2bf5c1232c39E(ptr noalias nocapture noundef nonnull sret({ i8, [103 x i8] }) align 8 dereferenceable(104) %18, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %113)
   %589 = load i8, ptr %18, align 8, !range !186, !noundef !4
   %590 = icmp eq i8 %589, 44
@@ -17690,6 +17693,7 @@ define hidden void @_ZN4just17interrupt_handler16InterruptHandler7install17h556d
           to label %25 unwind label %23
 
 12:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 4) ]
   %13 = getelementptr inbounds i8, ptr %5, i64 4
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i, label %14
 
@@ -17704,7 +17708,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.111072750
   br i1 %18, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i, label %19
 
 19:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.11107275065492906757.exit.i.i.i
-  store atomic i8 1, ptr %13 monotonic, align 1, !noalias !3283
+  store atomic i8 1, ptr %13 monotonic, align 4, !noalias !3283
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit.i.i: ; preds = %19, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.11107275065492906757.exit.i.i.i, %14, %12

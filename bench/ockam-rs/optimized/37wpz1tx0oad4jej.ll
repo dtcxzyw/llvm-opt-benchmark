@@ -4078,6 +4078,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -5381,6 +5382,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -6684,6 +6686,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -7963,6 +7966,7 @@ common.ret:                                       ; preds = %330, %"_ZN72_$LT$co
 
 338:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %17, align 8
   %339 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %340 = icmp ult i64 %339, 5
@@ -9242,6 +9246,7 @@ common.ret:                                       ; preds = %330, %"_ZN72_$LT$co
 
 338:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %17, align 8
   %339 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %340 = icmp ult i64 %339, 5
@@ -10545,6 +10550,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -11848,6 +11854,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -13151,6 +13158,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -14454,6 +14462,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -15736,6 +15745,7 @@ common.ret:                                       ; preds = %333, %"_ZN72_$LT$co
 
 341:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %17, align 8
   %342 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %343 = icmp ult i64 %342, 5
@@ -17039,6 +17049,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -18342,6 +18353,7 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract46, i64 8) ]
   store ptr %.fca.1.extract46, ptr %18, align 8
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %344 = icmp ult i64 %343, 5
@@ -20221,6 +20233,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
           to label %.body353 unwind label %198
 
 119:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   store ptr %107, ptr %89, align 8
   %120 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %121 = icmp ult i64 %120, 5
@@ -20809,6 +20822,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %312 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %313 = icmp ult i64 %312, 5
@@ -22356,6 +22370,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
           to label %.body351 unwind label %194
 
 115:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 8) ]
   store ptr %103, ptr %85, align 8
   %116 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %117 = icmp ult i64 %116, 5
@@ -22944,6 +22959,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %44, align 8
   %308 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %309 = icmp ult i64 %308, 5
@@ -24514,6 +24530,7 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
           to label %.body353 unwind label %197
 
 118:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   store ptr %106, ptr %88, align 8
   %119 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %120 = icmp ult i64 %119, 5
@@ -25079,6 +25096,7 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
 
 304:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %305 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %306 = icmp ult i64 %305, 5
@@ -26633,6 +26651,7 @@ common.ret:                                       ; preds = %682, %297, %"_ZN4co
           to label %.body353 unwind label %198
 
 119:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   store ptr %107, ptr %89, align 8
   %120 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %121 = icmp ult i64 %120, 5
@@ -27198,6 +27217,7 @@ common.ret:                                       ; preds = %682, %297, %"_ZN4co
 
 305:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %306 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %307 = icmp ult i64 %306, 5
@@ -28728,6 +28748,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
           to label %.body351 unwind label %194
 
 115:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 8) ]
   store ptr %103, ptr %85, align 8
   %116 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %117 = icmp ult i64 %116, 5
@@ -29316,6 +29337,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %44, align 8
   %308 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %309 = icmp ult i64 %308, 5
@@ -30863,6 +30885,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
           to label %.body351 unwind label %194
 
 115:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 8) ]
   store ptr %103, ptr %85, align 8
   %116 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %117 = icmp ult i64 %116, 5
@@ -31451,6 +31474,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %44, align 8
   %308 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %309 = icmp ult i64 %308, 5
@@ -33021,6 +33045,7 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
           to label %.body353 unwind label %197
 
 118:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   store ptr %106, ptr %88, align 8
   %119 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %120 = icmp ult i64 %119, 5
@@ -33586,6 +33611,7 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
 
 304:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %305 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %306 = icmp ult i64 %305, 5
@@ -35140,6 +35166,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
           to label %.body353 unwind label %198
 
 119:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   store ptr %107, ptr %89, align 8
   %120 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %121 = icmp ult i64 %120, 5
@@ -35728,6 +35755,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %312 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %313 = icmp ult i64 %312, 5
@@ -37275,6 +37303,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
           to label %.body351 unwind label %194
 
 115:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 8) ]
   store ptr %103, ptr %85, align 8
   %116 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %117 = icmp ult i64 %116, 5
@@ -37863,6 +37892,7 @@ common.ret:                                       ; preds = %684, %299, %.invoke
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %44, align 8
   %308 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %309 = icmp ult i64 %308, 5
@@ -39434,6 +39464,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
           to label %.body353 unwind label %198
 
 119:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   store ptr %107, ptr %89, align 8
   %120 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %121 = icmp ult i64 %120, 5
@@ -40022,6 +40053,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %312 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %313 = icmp ult i64 %312, 5
@@ -41592,6 +41624,7 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
           to label %.body353 unwind label %197
 
 118:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
   store ptr %106, ptr %88, align 8
   %119 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %120 = icmp ult i64 %119, 5
@@ -42157,6 +42190,7 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
 
 304:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %305 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %306 = icmp ult i64 %305, 5
@@ -43711,6 +43745,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
           to label %.body353 unwind label %198
 
 119:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   store ptr %107, ptr %89, align 8
   %120 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %121 = icmp ult i64 %120, 5
@@ -44299,6 +44334,7 @@ common.ret:                                       ; preds = %688, %303, %.invoke
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract84, i64 8) ]
   store ptr %.fca.1.extract84, ptr %45, align 8
   %312 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %313 = icmp ult i64 %312, 5
@@ -48457,6 +48493,7 @@ common.ret:                                       ; preds = %316, %"_ZN72_$LT$co
 
 324:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract49, i64 8) ]
   store ptr %.fca.1.extract49, ptr %17, align 8
   %325 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %326 = icmp ult i64 %325, 5
@@ -49683,6 +49720,7 @@ common.ret:                                       ; preds = %316, %"_ZN72_$LT$co
 
 324:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract49, i64 8) ]
   store ptr %.fca.1.extract49, ptr %17, align 8
   %325 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %326 = icmp ult i64 %325, 5
@@ -50909,6 +50947,7 @@ common.ret:                                       ; preds = %316, %"_ZN72_$LT$co
 
 324:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract49, i64 8) ]
   store ptr %.fca.1.extract49, ptr %17, align 8
   %325 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %326 = icmp ult i64 %325, 5
@@ -51789,6 +51828,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   br label %.body
 
 109:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   store ptr %102, ptr %84, align 8
   %110 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %111 = icmp ult i64 %110, 5
@@ -52416,6 +52456,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
 
 318:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract107, i64 8) ]
   store ptr %.fca.1.extract107, ptr %33, align 8
   %319 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %320 = icmp ult i64 %319, 5
@@ -53627,6 +53668,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   br label %.body
 
 109:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   store ptr %102, ptr %84, align 8
   %110 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %111 = icmp ult i64 %110, 5
@@ -54254,6 +54296,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
 
 318:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract107, i64 8) ]
   store ptr %.fca.1.extract107, ptr %33, align 8
   %319 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %320 = icmp ult i64 %319, 5
@@ -55465,6 +55508,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   br label %.body
 
 109:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5af5a1d4f857e39cE.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   store ptr %102, ptr %84, align 8
   %110 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %111 = icmp ult i64 %110, 5
@@ -56092,6 +56136,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
 
 318:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract107, i64 8) ]
   store ptr %.fca.1.extract107, ptr %33, align 8
   %319 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
   %320 = icmp ult i64 %319, 5
@@ -73455,6 +73500,7 @@ common.ret:                                       ; preds = %4, %1, %36
 21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9505)
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %22 = getelementptr inbounds i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8, !noalias !9508, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds i8, ptr %0, i64 72
@@ -74668,6 +74714,7 @@ common.ret:                                       ; preds = %16, %12, %4, %1
 16:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9724)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9727)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !9730, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 72
@@ -75400,6 +75447,7 @@ common.ret:                                       ; preds = %13, %9, %1
 13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9890)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9893)
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8, !noalias !9896, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds i8, ptr %0, i64 56
@@ -89280,9 +89328,11 @@ define hidden void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !12477
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i.i, i64 8) ]
   store ptr %.fca.0.extract.i.i, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.fca.1.extract.i.i, ptr %12, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i.i, i64 8) ]
   %13 = load ptr, ptr %.fca.1.extract.i.i, align 8, !invariant.load !5, !noalias !12484, !nonnull !5
   invoke void %13(ptr noundef nonnull align 1 %.fca.0.extract.i.i)
           to label %.thread unwind label %14, !noalias !12484
@@ -90933,6 +90983,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 89:                                               ; preds = %85
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12566)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12569)
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 8) ]
   %90 = getelementptr inbounds i8, ptr %87, i64 24
   %91 = load ptr, ptr %90, align 8, !noalias !12572, !nonnull !5, !noundef !5
   %92 = getelementptr inbounds i8, ptr %1, i64 72
@@ -113755,6 +113806,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
 82:                                               ; preds = %79
   call void @llvm.experimental.noalias.scope.decl(metadata !15492)
   call void @llvm.experimental.noalias.scope.decl(metadata !15495)
+  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 8) ]
   %83 = getelementptr inbounds i8, ptr %80, i64 24
   %84 = load ptr, ptr %83, align 8, !noalias !15498, !nonnull !5, !noundef !5
   %85 = load ptr, ptr %52, align 8, !alias.scope !15499, !noalias !15467, !noundef !5
@@ -113790,6 +113842,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
 95:                                               ; preds = %92
   call void @llvm.experimental.noalias.scope.decl(metadata !15510)
   call void @llvm.experimental.noalias.scope.decl(metadata !15513)
+  call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 8) ]
   %96 = getelementptr inbounds i8, ptr %93, i64 24
   %97 = load ptr, ptr %96, align 8, !noalias !15516, !nonnull !5, !noundef !5
   %98 = load ptr, ptr %52, align 8, !alias.scope !15517, !noalias !15467, !noundef !5
@@ -114267,6 +114320,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
 80:                                               ; preds = %77
   call void @llvm.experimental.noalias.scope.decl(metadata !15589)
   call void @llvm.experimental.noalias.scope.decl(metadata !15592)
+  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 8) ]
   %81 = getelementptr inbounds i8, ptr %78, i64 24
   %82 = load ptr, ptr %81, align 8, !noalias !15595, !nonnull !5, !noundef !5
   %83 = load ptr, ptr %50, align 8, !alias.scope !15596, !noalias !15564, !noundef !5
@@ -114302,6 +114356,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
 93:                                               ; preds = %90
   call void @llvm.experimental.noalias.scope.decl(metadata !15607)
   call void @llvm.experimental.noalias.scope.decl(metadata !15610)
+  call void @llvm.assume(i1 true) [ "align"(ptr %91, i64 8) ]
   %94 = getelementptr inbounds i8, ptr %91, i64 24
   %95 = load ptr, ptr %94, align 8, !noalias !15613, !nonnull !5, !noundef !5
   %96 = load ptr, ptr %50, align 8, !alias.scope !15614, !noalias !15564, !noundef !5
@@ -115016,6 +115071,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
 78:                                               ; preds = %75
   call void @llvm.experimental.noalias.scope.decl(metadata !15717)
   call void @llvm.experimental.noalias.scope.decl(metadata !15720)
+  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 8) ]
   %79 = getelementptr inbounds i8, ptr %76, i64 24
   %80 = load ptr, ptr %79, align 8, !noalias !15723, !nonnull !5, !noundef !5
   %81 = load ptr, ptr %50, align 8, !alias.scope !15724, !noalias !15692, !noundef !5
@@ -115051,6 +115107,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
 91:                                               ; preds = %88
   call void @llvm.experimental.noalias.scope.decl(metadata !15735)
   call void @llvm.experimental.noalias.scope.decl(metadata !15738)
+  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 8) ]
   %92 = getelementptr inbounds i8, ptr %89, i64 24
   %93 = load ptr, ptr %92, align 8, !noalias !15741, !nonnull !5, !noundef !5
   %94 = load ptr, ptr %50, align 8, !alias.scope !15742, !noalias !15692, !noundef !5
@@ -115729,6 +115786,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
 80:                                               ; preds = %77
   call void @llvm.experimental.noalias.scope.decl(metadata !15828)
   call void @llvm.experimental.noalias.scope.decl(metadata !15831)
+  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 8) ]
   %81 = getelementptr inbounds i8, ptr %78, i64 24
   %82 = load ptr, ptr %81, align 8, !noalias !15834, !nonnull !5, !noundef !5
   %83 = load ptr, ptr %50, align 8, !alias.scope !15835, !noalias !15802, !noundef !5
@@ -115764,6 +115822,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
 93:                                               ; preds = %90
   call void @llvm.experimental.noalias.scope.decl(metadata !15846)
   call void @llvm.experimental.noalias.scope.decl(metadata !15849)
+  call void @llvm.assume(i1 true) [ "align"(ptr %91, i64 8) ]
   %94 = getelementptr inbounds i8, ptr %91, i64 24
   %95 = load ptr, ptr %94, align 8, !noalias !15852, !nonnull !5, !noundef !5
   %96 = load ptr, ptr %50, align 8, !alias.scope !15853, !noalias !15802, !noundef !5
@@ -116245,6 +116304,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
 78:                                               ; preds = %75
   call void @llvm.experimental.noalias.scope.decl(metadata !15925)
   call void @llvm.experimental.noalias.scope.decl(metadata !15928)
+  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 8) ]
   %79 = getelementptr inbounds i8, ptr %76, i64 24
   %80 = load ptr, ptr %79, align 8, !noalias !15931, !nonnull !5, !noundef !5
   %81 = load ptr, ptr %50, align 8, !alias.scope !15932, !noalias !15900, !noundef !5
@@ -116280,6 +116340,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
 91:                                               ; preds = %88
   call void @llvm.experimental.noalias.scope.decl(metadata !15943)
   call void @llvm.experimental.noalias.scope.decl(metadata !15946)
+  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 8) ]
   %92 = getelementptr inbounds i8, ptr %89, i64 24
   %93 = load ptr, ptr %92, align 8, !noalias !15949, !nonnull !5, !noundef !5
   %94 = load ptr, ptr %50, align 8, !alias.scope !15950, !noalias !15900, !noundef !5
@@ -123569,6 +123630,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
   store i32 0, ptr %.sroa.4132.0..sroa_idx.i.i, align 8, !noalias !16411
   %442 = getelementptr inbounds i8, ptr %.val238.i.i, i64 40
   %443 = load ptr, ptr %442, align 8, !invariant.load !5, !noalias !16431, !nonnull !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %427, i64 8) ]
   %444 = invoke { ptr, ptr } %443(ptr noundef align 1 %440, ptr noalias noundef nonnull align 8 dereferenceable(40) %427, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %441)
           to label %447 unwind label %445, !noalias !16431
 
@@ -124853,6 +124915,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
 896:                                              ; preds = %894
   %.fca.1.extract.i116 = extractvalue { ptr, i32 } %893, 1
   %897 = getelementptr inbounds i8, ptr %0, i64 514
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract.i115, i64 8) ]
   store ptr %.fca.0.extract.i115, ptr %43, align 8, !noalias !16406
   %898 = getelementptr inbounds i8, ptr %43, i64 8
   store i32 %.fca.1.extract.i116, ptr %898, align 8, !noalias !16406
@@ -124860,6 +124923,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41), !noalias !16406
   %899 = load ptr, ptr %881, align 8, !noalias !16406, !nonnull !5, !align !9, !noundef !5
   store i8 0, ptr %897, align 2, !noalias !16406
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.0.extract.i115, i64 8) ]
   invoke void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size17hd9c02da73f382517E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %899, ptr noundef nonnull align 8 %.fca.0.extract.i115, i32 noundef %.fca.1.extract.i116)
           to label %902 unwind label %900
 

@@ -46687,6 +46687,7 @@ define hidden void @_ZN4time18format_description5parse11parse_owned17h829248a7b0
           to label %78 unwind label %76
 
 29:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !10364
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !10364
   %30 = icmp ne ptr %19, null
@@ -47896,6 +47897,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hab308c2dc74f3324E.exit.i
 92:                                               ; preds = %87
   %93 = icmp ne ptr %.sroa.0.sroa.5.0.copyload.i, null
   call void @llvm.assume(i1 %93)
+  call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 8) ]
   call fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hd385a2c95f806603E"(ptr noundef nonnull align 8 %.sroa.0.sroa.5.0.copyload.i, ptr noalias noundef nonnull align 8 %88), !noalias !10639
   br label %_ZN14regex_automata4meta5regex5Regex6search17h0daebcc60848b8daE.exit
 
@@ -71591,6 +71593,7 @@ _ZN5typst11foundations6styles6Styles5apply17hffc5d8ee080fe76eE.exit: ; preds = %
 164:                                              ; preds = %161
   %165 = lshr i64 %151, 6
   %166 = add nsw i64 %165, -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %163, i64 8) ]
   %167 = getelementptr inbounds i8, ptr %163, i64 16
   %168 = load i64, ptr %167, align 8, !noalias !15838, !noundef !4
   %169 = icmp ult i64 %166, %168
@@ -71633,6 +71636,7 @@ _ZN5typst11foundations7content7Content10is_guarded17h981a6d7928681b26E.exit.thre
 186:                                              ; preds = %.thread150
   %187 = lshr i64 %151, 6
   %188 = add nsw i64 %187, -1
+  call void @llvm.assume(i1 true) [ "align"(ptr %181, i64 8) ]
   %189 = getelementptr inbounds i8, ptr %181, i64 16
   %190 = load i64, ptr %189, align 8, !noalias !15839, !noundef !4
   %191 = icmp ult i64 %188, %190
@@ -72245,6 +72249,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hab308c2dc74f3324E.exit.i
 138:                                              ; preds = %131
   %139 = getelementptr inbounds i8, ptr %32, i64 16
   %140 = load ptr, ptr %139, align 8, !alias.scope !15945, !noalias !15912, !nonnull !4, !align !73, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %132, i64 8) ]
   invoke void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hd385a2c95f806603E.llvm.16845035774076767816"(ptr noundef nonnull align 8 %140, ptr noalias noundef nonnull align 8 %132)
           to label %.noexc145.i unwind label %151, !noalias !15935
 
@@ -72953,6 +72958,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hab308c2dc74f3324E.exit.i
 366:                                              ; preds = %359
   %367 = getelementptr inbounds i8, ptr %32, i64 16
   %368 = load ptr, ptr %367, align 8, !alias.scope !16102, !noalias !15912, !nonnull !4, !align !73, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %360, i64 8) ]
   invoke void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hd385a2c95f806603E.llvm.16845035774076767816"(ptr noundef nonnull align 8 %368, ptr noalias noundef nonnull align 8 %360)
           to label %.noexc156.i unwind label %379, !noalias !15935
 
@@ -75088,6 +75094,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst7realize7Builder15interrupt_cites1
 
 96:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e4f15405b03cedfE.exit"
   %.sroa.760.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.059.0.copyload, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.760.0..sroa_idx, i64 24, i1 false)
   %97 = invoke fastcc { ptr, i64 } @_ZN5typst7realize7Builder6accept17h0515b0300c6fb712E(ptr noalias noundef align 8 dereferenceable(296) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.059.0.copyload, ptr noalias nocapture noundef align 8 dereferenceable(24) %11)
           to label %101 unwind label %86
@@ -75915,6 +75922,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst7realize7Builder14interrupt_list17
 
 221:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e4f15405b03cedfE.exit"
   %.sroa.757.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.056.0.copyload, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.757.0..sroa_idx, i64 24, i1 false)
   %222 = invoke fastcc { ptr, i64 } @_ZN5typst7realize7Builder6accept17h0515b0300c6fb712E(ptr noalias noundef align 8 dereferenceable(296) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.056.0.copyload, ptr noalias nocapture noundef align 8 dereferenceable(24) %27)
           to label %223 unwind label %211
@@ -181050,6 +181058,7 @@ define void @"_ZN86_$LT$typst..foundations..str..ToStr$u20$as$u20$typst..foundat
   %.sroa.096.sroa.0.0.copyload = load ptr, ptr %47, align 8
   %.sroa.096.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.096.sroa.4.0.copyload = load i64, ptr %.sroa.096.sroa.4.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.096.sroa.0.0.copyload, i64 8) ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br i1 %trunc108, label %60, label %62
 
@@ -184252,6 +184261,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hab308c2dc74f3324E.exit.i
 117:                                              ; preds = %112
   %118 = icmp ne ptr %.sroa.0.sroa.5.0.copyload.i.i, null
   call void @llvm.assume(i1 %118)
+  call void @llvm.assume(i1 true) [ "align"(ptr %113, i64 8) ]
   invoke fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hd385a2c95f806603E"(ptr noundef nonnull align 8 %.sroa.0.sroa.5.0.copyload.i.i, ptr noalias noundef nonnull align 8 %113)
           to label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h40ce6341a59e1b1cE.exit.i.i" unwind label %43
 
@@ -185548,6 +185558,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hab308c2dc74f3324E.exit.i
 137:                                              ; preds = %132
   %138 = icmp ne ptr %.sroa.01.sroa.5.0.copyload.i.i, null
   call void @llvm.assume(i1 %138)
+  call void @llvm.assume(i1 true) [ "align"(ptr %133, i64 8) ]
   invoke fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hd385a2c95f806603E"(ptr noundef nonnull align 8 %.sroa.01.sroa.5.0.copyload.i.i, ptr noalias noundef nonnull align 8 %133)
           to label %149 unwind label %147, !noalias !38454
 
@@ -188132,6 +188143,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hab308c2dc74f3324E.exit.i
 204:                                              ; preds = %197
   %205 = getelementptr inbounds i8, ptr %19, i64 16
   %206 = load ptr, ptr %205, align 8, !alias.scope !39000, !nonnull !4, !align !73, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %198, i64 8) ]
   invoke void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hd385a2c95f806603E.llvm.16845035774076767816"(ptr noundef nonnull align 8 %206, ptr noalias noundef nonnull align 8 %198)
           to label %.noexc100 unwind label %217
 

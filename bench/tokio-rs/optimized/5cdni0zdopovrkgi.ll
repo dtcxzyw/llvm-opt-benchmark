@@ -627,6 +627,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !118, !nonnull !5, !noundef !5
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3317,6 +3318,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer4wake17hf2b726b94e029
   %15 = load ptr, ptr %14, align 8, !noalias !457, !nonnull !5, !align !45, !noundef !5
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !457, !noundef !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
   invoke void %19(ptr noundef %17)
@@ -4233,6 +4235,7 @@ _ZN5tokio7runtime6driver6Handle2io17hd3cae55507d04e29E.exit: ; preds = %2
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %_ZN5tokio7runtime6driver6Handle2io17hd3cae55507d04e29E.exit, %15
   store ptr %13, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !604)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !607)
   %17 = getelementptr inbounds i8, ptr %1, i64 56
@@ -4545,6 +4548,7 @@ define hidden void @_ZN5tokio7runtime2io6driver6Driver4turn17h41c2eeeab8955e8cE.
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit.i": ; preds = %18, %15
   store ptr %16, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !663)
   %.sroa.0.0.copyload.i.i = load i64, ptr %20, align 8, !alias.scope !663
@@ -4973,6 +4977,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h133
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %13
   store ptr %11, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %15)
           to label %19 unwind label %17
@@ -5093,6 +5098,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h133
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit21": ; preds = %48, %50
   store ptr %11, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %55 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %56 = getelementptr inbounds i8, ptr %55, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !754
@@ -5196,6 +5202,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h3da
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -5308,6 +5315,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h3da
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !792
@@ -5413,6 +5421,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h502
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %13
   store ptr %11, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %15)
           to label %19 unwind label %17
@@ -5533,6 +5542,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h502
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit21": ; preds = %48, %50
   store ptr %11, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %55 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %56 = getelementptr inbounds i8, ptr %55, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !839
@@ -5636,6 +5646,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h593
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -5748,6 +5759,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h593
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !877
@@ -5851,6 +5863,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h732
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -5963,6 +5976,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h732
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !915
@@ -6066,6 +6080,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h85e
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -6178,6 +6193,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h85e
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !953
@@ -6281,6 +6297,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h9c9
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -6393,6 +6410,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17h9c9
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !991
@@ -6496,6 +6514,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17hca6
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -6608,6 +6627,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17hca6
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1029
@@ -6711,6 +6731,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17hcd9
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -6823,6 +6844,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17hcd9
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1067
@@ -6926,6 +6948,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17hfac
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %3, %11
   store ptr %9, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8allocate17hd54c72aa0593e221E(ptr nonnull align 8 poison, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
           to label %17 unwind label %15
@@ -7038,6 +7061,7 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io6driver6Handle10add_source17hfac
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit20": ; preds = %45, %47
   store ptr %9, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %52 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1105
@@ -7144,6 +7168,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1129)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1132)
@@ -7298,6 +7323,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1171)
@@ -7452,6 +7478,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1207)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1210)
@@ -7606,6 +7633,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1249)
@@ -7770,6 +7798,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %13, %16
   store ptr %14, ptr %8, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1294)
   call void @llvm.experimental.noalias.scope.decl(metadata !1297)
@@ -7924,6 +7953,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1333)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1336)
@@ -8078,6 +8108,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1375)
@@ -8232,6 +8263,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1411)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1414)
@@ -8386,6 +8418,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %10, %13
   store ptr %11, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1450)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1453)
@@ -8550,6 +8583,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %13, %16
   store ptr %14, ptr %8, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1498)
   call void @llvm.experimental.noalias.scope.decl(metadata !1501)
@@ -9007,6 +9041,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake17he2f3c
   br i1 %.0.i.not, label %26, label %14
 
 14:                                               ; preds = %12
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 16, !align !45, !noundef !5
   %17 = getelementptr inbounds i8, ptr %0, i64 56
@@ -9016,6 +9051,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake17he2f3c
   br i1 %.not, label %26, label %19
 
 19:                                               ; preds = %14
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %20 = load i64, ptr %5, align 8, !alias.scope !1578, !noalias !1581, !noundef !5
   %21 = icmp ult i64 %20, 32
   br i1 %21, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit, label %.invoke100, !prof !1583
@@ -9049,6 +9085,7 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %19
   br label %42
 
 35:                                               ; preds = %28
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   %36 = load i64, ptr %5, align 8, !alias.scope !1584, !noalias !1587, !noundef !5
   %37 = icmp ult i64 %36, 32
   br i1 %37, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29, label %.invoke100, !prof !1583
@@ -9233,6 +9270,7 @@ common.resume:                                    ; preds = %.thread
   ret void
 
 100:                                              ; preds = %85
+  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 8) ]
   %101 = getelementptr inbounds i8, ptr %66, i64 40
   store i8 1, ptr %101, align 8
   %102 = icmp ult i64 %.pre, 32
@@ -9345,7 +9383,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo14poll_readin
   store i8 %13, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.529.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   store i8 %16, ptr %.sroa.529.0..sroa_idx, align 1
-  br label %100
+  br label %101
 
 17:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -9360,188 +9398,191 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo14poll_readin
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit": ; preds = %17, %20
   store ptr %18, ptr %5, align 8
-  %.0.v = select i1 %3, i64 64, i64 48
-  %.0 = getelementptr inbounds i8, ptr %1, i64 %.0.v
-  %22 = load ptr, ptr %.0, align 16, !noundef !5
-  %23 = icmp eq ptr %22, null
-  %24 = load ptr, ptr %2, align 8, !nonnull !5, !align !45, !noundef !5
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !noundef !5
-  br i1 %23, label %27, label %31
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
+  %. = select i1 %3, i64 64, i64 48
+  %22 = getelementptr inbounds i8, ptr %1, i64 %.
+  %23 = load ptr, ptr %22, align 16, !noundef !5
+  %24 = icmp eq ptr %23, null
+  %25 = load ptr, ptr %2, align 8, !nonnull !5, !align !45, !noundef !5
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8, !noundef !5
+  br i1 %24, label %28, label %32
 
-27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit"
-  %28 = load ptr, ptr %24, align 8, !nonnull !5, !align !45, !noundef !5
-  %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
-  %30 = invoke { ptr, ptr } %29(ptr noundef %26)
-          to label %38 unwind label %36
+28:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit"
+  %29 = load ptr, ptr %25, align 8, !nonnull !5, !align !45, !noundef !5
+  %30 = load ptr, ptr %29, align 8, !nonnull !5, !noundef !5
+  %31 = invoke { ptr, ptr } %30(ptr noundef %27)
+          to label %39 unwind label %37
 
-31:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit"
-  %32 = getelementptr inbounds i8, ptr %.0, i64 8
-  %33 = load ptr, ptr %32, align 8, !noundef !5
-  %34 = icmp eq ptr %33, %26
-  %.pre = load ptr, ptr %24, align 8
+32:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit"
+  %33 = getelementptr inbounds i8, ptr %22, i64 8
+  %34 = load ptr, ptr %33, align 8, !noundef !5
+  %35 = icmp eq ptr %34, %27
+  %.pre = load ptr, ptr %25, align 8
   %.pre40 = load ptr, ptr %.pre, align 8
-  br i1 %34, label %52, label %.critedge
+  br i1 %35, label %53, label %.critedge
 
-35:                                               ; preds = %80, %49, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %50, %49 ], [ %81, %80 ]
+36:                                               ; preds = %81, %50, %37
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %51, %50 ], [ %82, %81 ]
   invoke void @"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #28
-          to label %103 unwind label %101
+          to label %104 unwind label %102
 
-36:                                               ; preds = %.critedge, %27
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.critedge, %28
+  %38 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %36
 
-38:                                               ; preds = %27
-  %39 = extractvalue { ptr, ptr } %30, 0
-  %40 = extractvalue { ptr, ptr } %30, 1
-  %41 = icmp ne ptr %39, null
-  tail call void @llvm.assume(i1 %41)
+39:                                               ; preds = %28
+  %40 = extractvalue { ptr, ptr } %31, 0
+  %41 = extractvalue { ptr, ptr } %31, 1
+  %42 = icmp ne ptr %40, null
+  tail call void @llvm.assume(i1 %42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1606)
-  %42 = load ptr, ptr %.0, align 16, !alias.scope !1606, !noundef !5
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit", label %44
+  %43 = load ptr, ptr %22, align 16, !alias.scope !1606, !noundef !5
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit", label %45
 
-44:                                               ; preds = %38
+45:                                               ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1609)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1612)
-  %45 = getelementptr inbounds i8, ptr %42, i64 24
-  %46 = load ptr, ptr %45, align 8, !noalias !1615, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds i8, ptr %.0, i64 8
-  %48 = load ptr, ptr %47, align 8, !alias.scope !1615, !noundef !5
-  invoke void %46(ptr noundef %48)
-          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit" unwind label %49
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
+  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %47 = load ptr, ptr %46, align 8, !noalias !1615, !nonnull !5, !noundef !5
+  %48 = getelementptr inbounds i8, ptr %22, i64 8
+  %49 = load ptr, ptr %48, align 8, !alias.scope !1615, !noundef !5
+  invoke void %47(ptr noundef %49)
+          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit" unwind label %50
 
-49:                                               ; preds = %44
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %45
+  %51 = landingpad { ptr, i32 }
           cleanup
-  store ptr %39, ptr %.0, align 16
-  store ptr %40, ptr %47, align 8
-  br label %35
+  store ptr %40, ptr %22, align 16
+  store ptr %41, ptr %48, align 8
+  br label %36
 
-"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit": ; preds = %38, %44
-  store ptr %39, ptr %.0, align 16
-  %51 = getelementptr inbounds i8, ptr %.0, i64 8
-  store ptr %40, ptr %51, align 8
-  br label %84
+"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit": ; preds = %39, %45
+  store ptr %40, ptr %22, align 16
+  %52 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %41, ptr %52, align 8
+  br label %85
 
-52:                                               ; preds = %31
+53:                                               ; preds = %32
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1616)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1619)
-  %53 = load ptr, ptr %22, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
-  %54 = icmp eq ptr %53, %.pre40
-  br i1 %54, label %55, label %.critedge
+  %54 = load ptr, ptr %23, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
+  %55 = icmp eq ptr %54, %.pre40
+  br i1 %55, label %56, label %.critedge
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %22, i64 8
-  %57 = load ptr, ptr %56, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %59 = load ptr, ptr %58, align 8, !alias.scope !1619, !noalias !1616, !nonnull !5, !noundef !5
-  %60 = icmp eq ptr %57, %59
-  br i1 %60, label %61, label %.critedge
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %23, i64 8
+  %58 = load ptr, ptr %57, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
+  %59 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %60 = load ptr, ptr %59, align 8, !alias.scope !1619, !noalias !1616, !nonnull !5, !noundef !5
+  %61 = icmp eq ptr %58, %60
+  br i1 %61, label %62, label %.critedge
 
-61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %22, i64 16
-  %63 = load ptr, ptr %62, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
-  %64 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %65 = load ptr, ptr %64, align 8, !alias.scope !1619, !noalias !1616, !nonnull !5, !noundef !5
-  %66 = icmp eq ptr %63, %65
-  br i1 %66, label %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", label %.critedge
+62:                                               ; preds = %56
+  %63 = getelementptr inbounds i8, ptr %23, i64 16
+  %64 = load ptr, ptr %63, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
+  %65 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %66 = load ptr, ptr %65, align 8, !alias.scope !1619, !noalias !1616, !nonnull !5, !noundef !5
+  %67 = icmp eq ptr %64, %66
+  br i1 %67, label %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", label %.critedge
 
-"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit": ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %22, i64 24
-  %68 = load ptr, ptr %67, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds i8, ptr %.pre, i64 24
-  %70 = load ptr, ptr %69, align 8, !alias.scope !1619, !noalias !1616, !nonnull !5, !noundef !5
-  %71 = icmp eq ptr %68, %70
-  br i1 %71, label %84, label %.critedge
+"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit": ; preds = %62
+  %68 = getelementptr inbounds i8, ptr %23, i64 24
+  %69 = load ptr, ptr %68, align 8, !alias.scope !1616, !noalias !1619, !nonnull !5, !noundef !5
+  %70 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %71 = load ptr, ptr %70, align 8, !alias.scope !1619, !noalias !1616, !nonnull !5, !noundef !5
+  %72 = icmp eq ptr %69, %71
+  br i1 %72, label %85, label %.critedge
 
-.critedge:                                        ; preds = %52, %55, %61, %31, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit"
-  %72 = invoke { ptr, ptr } %.pre40(ptr noundef %26)
-          to label %73 unwind label %36
+.critedge:                                        ; preds = %53, %56, %62, %32, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit"
+  %73 = invoke { ptr, ptr } %.pre40(ptr noundef %27)
+          to label %74 unwind label %37
 
-73:                                               ; preds = %.critedge
-  %74 = extractvalue { ptr, ptr } %72, 0
-  %75 = extractvalue { ptr, ptr } %72, 1
+74:                                               ; preds = %.critedge
+  %75 = extractvalue { ptr, ptr } %73, 0
+  %76 = extractvalue { ptr, ptr } %73, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1621)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1624)
-  %76 = load ptr, ptr %.0, align 16, !alias.scope !1627, !nonnull !5, !align !45, !noundef !5
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
-  %78 = load ptr, ptr %77, align 8, !noalias !1627, !nonnull !5, !noundef !5
-  %79 = load ptr, ptr %32, align 8, !alias.scope !1627, !noundef !5
-  invoke void %78(ptr noundef %79)
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.4117860391599875382.exit" unwind label %80
+  %77 = load ptr, ptr %22, align 16, !alias.scope !1627, !nonnull !5, !align !45, !noundef !5
+  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %79 = load ptr, ptr %78, align 8, !noalias !1627, !nonnull !5, !noundef !5
+  %80 = load ptr, ptr %33, align 8, !alias.scope !1627, !noundef !5
+  invoke void %79(ptr noundef %80)
+          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.4117860391599875382.exit" unwind label %81
 
-80:                                               ; preds = %73
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %74
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %82 = icmp ne ptr %74, null
-  tail call void @llvm.assume(i1 %82)
-  store ptr %74, ptr %.0, align 16
-  store ptr %75, ptr %32, align 8
-  br label %35
-
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.4117860391599875382.exit": ; preds = %73
-  %83 = icmp ne ptr %74, null
+  %83 = icmp ne ptr %75, null
   tail call void @llvm.assume(i1 %83)
-  store ptr %74, ptr %.0, align 16
-  store ptr %75, ptr %32, align 8
-  br label %84
+  store ptr %75, ptr %22, align 16
+  store ptr %76, ptr %33, align 8
+  br label %36
 
-84:                                               ; preds = %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.4117860391599875382.exit", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit"
-  %85 = load atomic i64, ptr %6 acquire, align 16
-  %86 = and i64 %85, 2147483648
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %.sink.split
+"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.4117860391599875382.exit": ; preds = %74
+  %84 = icmp ne ptr %75, null
+  tail call void @llvm.assume(i1 %84)
+  store ptr %75, ptr %22, align 16
+  store ptr %76, ptr %33, align 8
+  br label %85
 
-88:                                               ; preds = %84
-  %89 = and i64 %85, %..i
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %93, label %.sink.split
+85:                                               ; preds = %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.4117860391599875382.exit", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit"
+  %86 = load atomic i64, ptr %6 acquire, align 16
+  %87 = and i64 %86, 2147483648
+  %88 = icmp eq i64 %87, 0
+  br i1 %88, label %89, label %.sink.split
 
-.sink.split:                                      ; preds = %88, %84
-  %.sink43 = phi i64 [ %..i, %84 ], [ %89, %88 ]
-  %.sink.ph = phi i8 [ 1, %84 ], [ 0, %88 ]
-  %91 = lshr i64 %85, 16
-  %92 = trunc i64 %91 to i8
+89:                                               ; preds = %85
+  %90 = and i64 %86, %..i
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %94, label %.sink.split
+
+.sink.split:                                      ; preds = %89, %85
+  %.sink43 = phi i64 [ %..i, %85 ], [ %90, %89 ]
+  %.sink.ph = phi i8 [ 1, %85 ], [ 0, %89 ]
+  %92 = lshr i64 %86, 16
+  %93 = trunc i64 %92 to i8
   store i64 %.sink43, ptr %0, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %92, ptr %.sroa.424.0..sroa_idx, align 8
-  br label %93
+  store i8 %93, ptr %.sroa.424.0..sroa_idx, align 8
+  br label %94
 
-93:                                               ; preds = %.sink.split, %88
-  %.sink = phi i8 [ 2, %88 ], [ %.sink.ph, %.sink.split ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 %.sink, ptr %94, align 1
+94:                                               ; preds = %.sink.split, %89
+  %.sink = phi i8 [ 2, %89 ], [ %.sink.ph, %.sink.split ]
+  %95 = getelementptr inbounds i8, ptr %0, i64 9
+  store i8 %.sink, ptr %95, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1628)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1631)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1634)
-  %95 = load ptr, ptr %5, align 8, !alias.scope !1637, !nonnull !5, !align !45, !noundef !5
-  %96 = tail call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %95, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !1637
-  %.fca.0.extract.i.i.i.i = extractvalue { i8, i8 } %96, 0
-  %97 = and i8 %.fca.0.extract.i.i.i.i, 1
-  %98 = icmp eq i8 %97, 0
-  br i1 %98, label %"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit", label %99
+  %96 = load ptr, ptr %5, align 8, !alias.scope !1637, !nonnull !5, !align !45, !noundef !5
+  %97 = tail call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %96, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !1637
+  %.fca.0.extract.i.i.i.i = extractvalue { i8, i8 } %97, 0
+  %98 = and i8 %.fca.0.extract.i.i.i.i, 1
+  %99 = icmp eq i8 %98, 0
+  br i1 %99, label %"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit", label %100
 
-99:                                               ; preds = %93
-  tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %95, i1 noundef zeroext false), !noalias !1637
+100:                                              ; preds = %94
+  tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %96, i1 noundef zeroext false), !noalias !1637
   br label %"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit"
 
-"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit": ; preds = %93, %99
+"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit": ; preds = %94, %100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %100
+  br label %101
 
-100:                                              ; preds = %"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit", %10
+101:                                              ; preds = %"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit", %10
   ret void
 
-101:                                              ; preds = %35
-  %102 = landingpad { ptr, i32 }
+102:                                              ; preds = %36
+  %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
 
-103:                                              ; preds = %35
+104:                                              ; preds = %36
   resume { ptr, i32 } %.pn
 }
 
@@ -9607,6 +9648,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo12clear_waker
   br i1 %11, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit", label %12
 
 12:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %13 = getelementptr inbounds i8, ptr %8, i64 24
   %14 = load ptr, ptr %13, align 8, !noalias !1641, !nonnull !5, !noundef !5
   invoke void %14(ptr noundef %10)
@@ -9628,6 +9670,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo12clear_waker
   br i1 %21, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit6", label %22
 
 22:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.4117860391599875382.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %23 = getelementptr inbounds i8, ptr %18, i64 24
   %24 = load ptr, ptr %23, align 8, !noalias !1648, !nonnull !5, !noundef !5
   invoke void %24(ptr noundef %20)
@@ -9873,6 +9916,7 @@ default.unreachable138:                           ; preds = %.backedge
 88:                                               ; preds = %82
   call void @llvm.experimental.noalias.scope.decl(metadata !1666)
   call void @llvm.experimental.noalias.scope.decl(metadata !1669)
+  call void @llvm.assume(i1 true) [ "align"(ptr %86, i64 8) ]
   %89 = getelementptr inbounds i8, ptr %86, i64 24
   %90 = load ptr, ptr %89, align 8, !noalias !1672, !nonnull !5, !noundef !5
   %91 = load ptr, ptr %15, align 8, !alias.scope !1672, !noundef !5
@@ -9999,6 +10043,7 @@ default.unreachable138:                           ; preds = %.backedge
 
 .noexc59:                                         ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.4117860391599875382.exit"
   store i8 2, ptr %8, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   %125 = call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %34, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
   %.fca.0.extract.i.i.i.i58 = extractvalue { i8, i8 } %125, 0
   %126 = and i8 %.fca.0.extract.i.i.i.i58, 1
@@ -10096,6 +10141,7 @@ default.unreachable138:                           ; preds = %.backedge
 170:                                              ; preds = %164
   call void @llvm.experimental.noalias.scope.decl(metadata !1708)
   call void @llvm.experimental.noalias.scope.decl(metadata !1711)
+  call void @llvm.assume(i1 true) [ "align"(ptr %168, i64 8) ]
   %171 = getelementptr inbounds i8, ptr %168, i64 24
   %172 = load ptr, ptr %171, align 8, !noalias !1714, !nonnull !5, !noundef !5
   %173 = load ptr, ptr %15, align 8, !alias.scope !1714, !noundef !5
@@ -10285,6 +10331,7 @@ _ZN5tokio4sync4task12atomic_waker11AtomicWaker10take_waker17hd9e974a843dff871E.e
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %_ZN5tokio4sync4task12atomic_waker11AtomicWaker10take_waker17hd9e974a843dff871E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   tail call void %11(ptr noundef %7)
@@ -10416,6 +10463,7 @@ _ZN5tokio4time7instant7Instant3now17h415dd92ef415a1a0E.exit: ; preds = %16, %18
 _ZN5tokio4time8interval20internal_interval_at17h89dfeee0e8acc2a0E.exit: ; preds = %_ZN5tokio4time7instant7Instant3now17h415dd92ef415a1a0E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false), !noalias !1727
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5), !noalias !1727
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %30, align 8, !alias.scope !1727
   store i64 %1, ptr %0, align 8, !alias.scope !1727
@@ -10483,6 +10531,7 @@ define void @_ZN5tokio4time8interval11interval_at17h855e37e3b92f4cd6E(ptr noalia
 _ZN5tokio4time8interval20internal_interval_at17h89dfeee0e8acc2a0E.exit: ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false), !noalias !1733
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7), !noalias !1733
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %17, ptr %24, align 8, !alias.scope !1733
   store i64 %3, ptr %0, align 8, !alias.scope !1733

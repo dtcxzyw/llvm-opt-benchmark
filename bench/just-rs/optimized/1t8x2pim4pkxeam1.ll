@@ -1454,6 +1454,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit
           to label %common.resume.i unwind label %58
 
 _ZN4just17interrupt_handler16InterruptHandler9interrupt17h813565006a81a7e8E.exit.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb31a7ad420d8af23E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 4) ]
   %48 = getelementptr inbounds i8, ptr %30, i64 4
   br i1 %31, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i, label %49
 
@@ -1468,7 +1469,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.177576484
   br i1 %53, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i, label %54
 
 54:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i.i.i
-  store atomic i8 1, ptr %48 monotonic, align 1, !noalias !282
+  store atomic i8 1, ptr %48 monotonic, align 4, !noalias !282
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i.i.i: ; preds = %54, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i.i.i, %49, %_ZN4just17interrupt_handler16InterruptHandler9interrupt17h813565006a81a7e8E.exit.i.i
@@ -11217,6 +11218,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
 
 175:                                              ; preds = %51
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 8) ]
   call fastcc void @_ZN4just19assignment_resolver18AssignmentResolver18resolve_expression17h33ea3166ffc28bf7E(ptr noalias nocapture noundef align 8 dereferenceable(80) %11, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef readonly align 8 dereferenceable(128) %53)
   %176 = load i8, ptr %24, align 8, !range !1892, !noundef !9
   %177 = icmp eq i8 %176, 34
@@ -12094,6 +12096,7 @@ define hidden void @_ZN4just15interrupt_guard14InterruptGuard3new17h7fba1b4937a9
   %5 = load i32, ptr %4, align 4, !alias.scope !2130, !noundef !9
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 4, !alias.scope !2130
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 4) ]
   %7 = getelementptr inbounds i8, ptr %2, i64 4
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i, label %8
 
@@ -12108,7 +12111,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.177576484
   br i1 %12, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i, label %13
 
 13:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i
-  store atomic i8 1, ptr %7 monotonic, align 1, !noalias !2133
+  store atomic i8 1, ptr %7 monotonic, align 4, !noalias !2133
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17757648456425634998.exit.i.i: ; preds = %13, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17757648456425634998.exit.i.i.i, %8, %0
@@ -13064,6 +13067,7 @@ _ZN4just5token5Token5error17hd20fe30143e44bb6E.exit: ; preds = %.noexc.i.i
 
 134:                                              ; preds = %135, %133
   %.0 = phi ptr [ %119, %133 ], [ %126, %135 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 8) ]
   store i64 2, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %.sroa.416.0..sroa_idx, align 8
@@ -13197,6 +13201,7 @@ _ZN4just5token5Token5error17hd20fe30143e44bb6E.exit: ; preds = %.noexc.i.i
 168:                                              ; preds = %158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %160, ptr noundef nonnull align 8 dereferenceable(128) %17, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17)
+  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 8) ]
   store i64 3, ptr %0, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %.sroa.424.0..sroa_idx, align 8
@@ -13370,6 +13375,7 @@ _ZN4just5token5Token5error17hd20fe30143e44bb6E.exit: ; preds = %.noexc.i.i
 222:                                              ; preds = %213
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %215, ptr noundef nonnull align 8 dereferenceable(128) %12, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %195, i64 8) ]
   store i64 4, ptr %0, align 8
   %.sroa.432.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %.sroa.432.0..sroa_idx, align 8
@@ -13548,6 +13554,8 @@ _ZN4just5token5Token5error17hd20fe30143e44bb6E.exit: ; preds = %.noexc.i.i
 265:                                              ; preds = %256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %258, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
+  call void @llvm.assume(i1 true) [ "align"(ptr %246, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %233, i64 8) ]
   store i64 5, ptr %0, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %.sroa.442.0..sroa_idx, align 8
@@ -15169,6 +15177,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h6768a15044d92984E.exit.i28": ; preds = %132
+  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4), !noalias !2574
   invoke void @"_ZN67_$LT$just..expression..Expression$u20$as$u20$core..clone..Clone$GT$5clone17h2dfb89d99efcc12eE.llvm.17757648456425634998"(ptr noalias nocapture noundef nonnull sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %76)
           to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07e895749e9321f2E.llvm.17757648456425634998.exit29" unwind label %137, !noalias !2574
@@ -15225,6 +15234,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 150:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h6768a15044d92984E.exit.i30"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %141, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false), !noalias !2588
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !2580
+  call void @llvm.assume(i1 true) [ "align"(ptr %storemerge, i64 8) ]
   %151 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %storemerge, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %0, i64 8

@@ -8148,19 +8148,23 @@ define hidden { ptr, i64 } @_ZN4core4iter8adapters11try_process17h61af7189b8e011
   store i64 %9, ptr %10, align 8
   %11 = load i8, ptr %6, align 1, !range !149, !noundef !25
   %trunc = trunc nuw i8 %11 to i1
-  br i1 %trunc, label %15, label %12
+  br i1 %trunc, label %16, label %12
 
-12:                                               ; preds = %2, %15
-  %.sroa.0.07 = phi ptr [ null, %15 ], [ %8, %2 ]
+12:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
+  br label %13
+
+13:                                               ; preds = %12, %16
+  %.sroa.0.07 = phi ptr [ null, %16 ], [ %8, %12 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.07, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %9, 1
-  ret { ptr, i64 } %14
+  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.07, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %9, 1
+  ret { ptr, i64 } %15
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   call fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17h24c013b5f1e60ab5E"(ptr noalias noundef align 8 dereferenceable(16) %5)
-  br label %12
+  br label %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -53616,6 +53620,7 @@ define hidden void @_ZN7hir_def3hir11format_args24FormatArgumentsCollector6finis
   %20 = extractvalue { ptr, i64 } %16, 0
   %21 = extractvalue { ptr, i64 } %16, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   store ptr %8, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %9, ptr %22, align 8
@@ -57228,6 +57233,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit472: ; preds
   br label %1030
 
 1025:                                             ; preds = %462
+  call void @llvm.assume(i1 true) [ "align"(ptr %465, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15914)
   %1026 = load ptr, ptr %135, align 8, !alias.scope !15914, !noalias !15917, !nonnull !25, !align !122, !noundef !25
   %1027 = load ptr, ptr %136, align 8, !alias.scope !15914, !noalias !15917, !nonnull !25, !align !210, !noundef !25
@@ -57586,6 +57592,7 @@ _ZN7hir_def4body6pretty7Printer10print_path17habcae8f9568d0d25E.exit473: ; preds
   %1157 = add nuw i64 %.sroa.14.0289, 1
   %1158 = getelementptr inbounds i32, ptr %1147, i64 %.sroa.14.0289
   %1159 = getelementptr inbounds ptr, ptr %1151, i64 %.sroa.14.0289
+  call void @llvm.assume(i1 true) [ "align"(ptr %1158, i64 4) ]
   %1160 = icmp eq i64 %.sroa.14.0289, 0
   br i1 %1160, label %1223, label %1226
 
@@ -58467,6 +58474,7 @@ _ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit
   br label %212
 
 205:                                              ; preds = %105
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16036)
   %206 = getelementptr inbounds i8, ptr %0, i64 24
   %207 = load ptr, ptr %206, align 8, !alias.scope !16036, !noalias !16039, !nonnull !25, !align !122, !noundef !25
@@ -58533,6 +58541,7 @@ _ZN7hir_def4body6pretty7Printer10print_path17habcae8f9568d0d25E.exit48: ; preds 
   br label %_ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit49
 
 236:                                              ; preds = %109
+  call void @llvm.assume(i1 true) [ "align"(ptr %111, i64 16) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16042)
   %237 = load i8, ptr %111, align 16, !range !16045, !alias.scope !16042, !noalias !16046, !noundef !25
   %238 = icmp eq i8 %237, 8
@@ -58563,6 +58572,7 @@ _ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit
   br i1 %.not41, label %_ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit49, label %246
 
 246:                                              ; preds = %_ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %245, i64 16) ]
   %247 = load i8, ptr %245, align 16, !range !16045, !alias.scope !16048, !noalias !16051, !noundef !25
   %248 = icmp eq i8 %247, 8
   br i1 %248, label %250, label %249
@@ -58778,6 +58788,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit: ; preds = 
   br label %354
 
 347:                                              ; preds = %145
+  call void @llvm.assume(i1 true) [ "align"(ptr %147, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16064)
   %348 = getelementptr inbounds i8, ptr %0, i64 24
   %349 = load ptr, ptr %348, align 8, !alias.scope !16064, !noalias !16067, !nonnull !25, !align !122, !noundef !25

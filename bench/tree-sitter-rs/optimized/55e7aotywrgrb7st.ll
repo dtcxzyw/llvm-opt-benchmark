@@ -20210,19 +20210,20 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate12build_tables20minimi
   br i1 %481, label %482, label %.invoke.i.i, !prof !204
 
 482:                                              ; preds = %475
-  %483 = load i64, ptr %478, align 8, !noalias !3648, !noundef !14
-  %484 = icmp ult i64 %483, %180
-  br i1 %484, label %485, label %.invoke.i.i, !prof !204
+  %483 = getelementptr inbounds [0 x i64], ptr %183, i64 0, i64 %480
+  %484 = load i64, ptr %483, align 8, !alias.scope !3656, !noalias !3657, !noundef !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %478, i64 8) ]
+  %485 = load i64, ptr %478, align 8, !noalias !3648, !noundef !14
+  %486 = icmp ult i64 %485, %180
+  br i1 %486, label %487, label %.invoke.i.i, !prof !204
 
-485:                                              ; preds = %482
-  %486 = getelementptr inbounds [0 x i64], ptr %183, i64 0, i64 %480
-  %487 = load i64, ptr %486, align 8, !alias.scope !3656, !noalias !3657, !noundef !14
-  %488 = getelementptr inbounds [0 x i64], ptr %183, i64 0, i64 %483
+487:                                              ; preds = %482
+  %488 = getelementptr inbounds [0 x i64], ptr %183, i64 0, i64 %485
   %489 = load i64, ptr %488, align 8, !alias.scope !3656, !noalias !3657, !noundef !14
-  %490 = icmp eq i64 %487, %489
+  %490 = icmp eq i64 %484, %489
   br i1 %490, label %491, label %.critedge.i.i.i.i.i
 
-491:                                              ; preds = %485
+491:                                              ; preds = %487
   %492 = load i8, ptr %477, align 1, !range !317, !noalias !3648, !noundef !14
   %493 = load i8, ptr %479, align 1, !range !317, !noalias !3648, !noundef !14
   %.not71.i.i.i.i.i = icmp eq i8 %492, %493
@@ -20237,7 +20238,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate12build_tables20minimi
   %495 = icmp eq ptr %425, %422
   br i1 %495, label %_ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer16entries_conflict17ha9eb264917f10561E.exit.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ab52de72a320f6dE.exit.i.i.i.i.i"
 
-.critedge.i.i.i.i.i:                              ; preds = %491, %485
+.critedge.i.i.i.i.i:                              ; preds = %491, %487
   %496 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3645
   %497 = icmp ult i64 %496, 6
   call void @llvm.assume(i1 %497)
@@ -20418,7 +20419,7 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   br i1 %534, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.llvm.18097807149992804452.exit.i119.i.i.i.i.i", label %.invoke.i.i, !prof !204
 
 .invoke.i.i:                                      ; preds = %249, %300, %.lr.ph322.i.i, %533, %530, %527, %520, %517, %514, %507, %504, %501, %326, %394, %482, %475, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ab52de72a320f6dE.exit.i.i.i.i.i"
-  %535 = phi i64 [ %.fca.1.extract.val15.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ab52de72a320f6dE.exit.i.i.i.i.i" ], [ %480, %475 ], [ %483, %482 ], [ %396, %394 ], [ %.val95.i.i.i.i.i, %501 ], [ %.val95.i.i.i.i.i, %504 ], [ %.val95.i.i.i.i.i, %507 ], [ %.val99.i.i.i.i.i, %514 ], [ %.val99.i.i.i.i.i, %517 ], [ %.val99.i.i.i.i.i, %520 ], [ %.val103.i.i.i.i.i, %527 ], [ %.val103.i.i.i.i.i, %530 ], [ %.val103.i.i.i.i.i, %533 ], [ %317, %326 ], [ %276, %.lr.ph322.i.i ], [ %291, %300 ], [ %.0325.i.i, %249 ]
+  %535 = phi i64 [ %.fca.1.extract.val15.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ab52de72a320f6dE.exit.i.i.i.i.i" ], [ %480, %475 ], [ %485, %482 ], [ %396, %394 ], [ %.val95.i.i.i.i.i, %501 ], [ %.val95.i.i.i.i.i, %504 ], [ %.val95.i.i.i.i.i, %507 ], [ %.val99.i.i.i.i.i, %514 ], [ %.val99.i.i.i.i.i, %517 ], [ %.val99.i.i.i.i.i, %520 ], [ %.val103.i.i.i.i.i, %527 ], [ %.val103.i.i.i.i.i, %530 ], [ %.val103.i.i.i.i.i, %533 ], [ %317, %326 ], [ %276, %.lr.ph322.i.i ], [ %291, %300 ], [ %.0325.i.i, %249 ]
   %536 = phi i64 [ %.fca.1.extract.val15.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ab52de72a320f6dE.exit.i.i.i.i.i" ], [ %180, %475 ], [ %180, %482 ], [ %336, %394 ], [ %238, %501 ], [ %240, %504 ], [ %236, %507 ], [ %238, %514 ], [ %240, %517 ], [ %236, %520 ], [ %238, %527 ], [ %240, %530 ], [ %236, %533 ], [ %181, %326 ], [ %180, %.lr.ph322.i.i ], [ %181, %300 ], [ %.val41.i.i, %249 ]
   %537 = phi ptr [ @anon.f4ab2160caa6653ef344418ff3b39bb7.238, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ab52de72a320f6dE.exit.i.i.i.i.i" ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.239, %475 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.240, %482 ], [ @anon.ffc34ad9ea0ca27223c3df7e39c916b2.376.llvm.10393017446704266758, %394 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.256, %501 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.254, %504 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.255, %507 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.256, %514 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.254, %517 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.255, %520 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.256, %527 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.254, %530 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.255, %533 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.315, %326 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.311, %.lr.ph322.i.i ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.313, %300 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.310, %249 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %535, i64 noundef %536, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %537) #45
@@ -20813,7 +20814,7 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
   br i1 %668, label %._crit_edge363.i.i, label %.lr.ph362.i.i
 
 .invoke.i119.i:                                   ; preds = %629, %683, %.lr.ph362.i.i, %900, %897, %894, %827, %824, %821, %710, %879, %875, %858, %750, %746, %805, %800, %792, %.noexc61.i152.i
-  %669 = phi i64 [ %.fca.1.extract.i.i.i.us.i.i.i, %.noexc61.i152.i ], [ %.fca.1.extract.i.i.i.i.i.i, %792 ], [ %803, %800 ], [ %806, %805 ], [ %748, %746 ], [ %751, %750 ], [ %860, %858 ], [ %877, %875 ], [ %880, %879 ], [ %.fca.0.extract18.val.i.i.i.i, %821 ], [ %.fca.0.extract18.val.i.i.i.i, %824 ], [ %.fca.0.extract18.val.i.i.i.i, %827 ], [ %.fca.0.extract.val.i.i.i.i, %894 ], [ %.fca.0.extract.val.i.i.i.i, %897 ], [ %.fca.0.extract.val.i.i.i.i, %900 ], [ %701, %710 ], [ %656, %.lr.ph362.i.i ], [ %674, %683 ], [ %.0365.i.i, %629 ]
+  %669 = phi i64 [ %.fca.1.extract.i.i.i.us.i.i.i, %.noexc61.i152.i ], [ %.fca.1.extract.i.i.i.i.i.i, %792 ], [ %803, %800 ], [ %808, %805 ], [ %748, %746 ], [ %753, %750 ], [ %860, %858 ], [ %877, %875 ], [ %882, %879 ], [ %.fca.0.extract18.val.i.i.i.i, %821 ], [ %.fca.0.extract18.val.i.i.i.i, %824 ], [ %.fca.0.extract18.val.i.i.i.i, %827 ], [ %.fca.0.extract.val.i.i.i.i, %894 ], [ %.fca.0.extract.val.i.i.i.i, %897 ], [ %.fca.0.extract.val.i.i.i.i, %900 ], [ %701, %710 ], [ %656, %.lr.ph362.i.i ], [ %674, %683 ], [ %.0365.i.i, %629 ]
   %670 = phi i64 [ %729, %.noexc61.i152.i ], [ %729, %792 ], [ %621, %800 ], [ %621, %805 ], [ %621, %746 ], [ %621, %750 ], [ %720, %858 ], [ %621, %875 ], [ %621, %879 ], [ %566, %821 ], [ %564, %824 ], [ %568, %827 ], [ %566, %894 ], [ %564, %897 ], [ %568, %900 ], [ %619, %710 ], [ %621, %.lr.ph362.i.i ], [ %619, %683 ], [ %.val41.i118.i, %629 ]
   %671 = phi ptr [ @anon.ffc34ad9ea0ca27223c3df7e39c916b2.376.llvm.10393017446704266758, %.noexc61.i152.i ], [ @anon.ffc34ad9ea0ca27223c3df7e39c916b2.376.llvm.10393017446704266758, %792 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.225, %800 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.226, %805 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.225, %746 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.226, %750 ], [ @anon.ffc34ad9ea0ca27223c3df7e39c916b2.376.llvm.10393017446704266758, %858 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.236, %875 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.237, %879 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.256, %821 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.254, %824 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.255, %827 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.256, %894 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.254, %897 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.255, %900 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.315, %710 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.311, %.lr.ph362.i.i ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.313, %683 ], [ @anon.f4ab2160caa6653ef344418ff3b39bb7.310, %629 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %669, i64 noundef %670, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %671) #45
@@ -21012,19 +21013,20 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
   br i1 %749, label %750, label %.invoke.i119.i, !prof !204
 
 750:                                              ; preds = %746
-  %751 = load i64, ptr %735, align 8, !noalias !3805, !noundef !14
-  %752 = icmp ult i64 %751, %621
-  br i1 %752, label %753, label %.invoke.i119.i, !prof !204
+  %751 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %748
+  %752 = load i64, ptr %751, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %735, i64 8) ]
+  %753 = load i64, ptr %735, align 8, !noalias !3805, !noundef !14
+  %754 = icmp ult i64 %753, %621
+  br i1 %754, label %755, label %.invoke.i119.i, !prof !204
 
-753:                                              ; preds = %750
-  %754 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %748
-  %755 = load i64, ptr %754, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
-  %756 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %751
+755:                                              ; preds = %750
+  %756 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %753
   %757 = load i64, ptr %756, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
-  %.not77.i.us44.i.i.i = icmp eq i64 %755, %757
+  %.not77.i.us44.i.i.i = icmp eq i64 %752, %757
   br i1 %.not77.i.us44.i.i.i, label %758, label %.critedge.i.i.i.i.loopexit791
 
-758:                                              ; preds = %753
+758:                                              ; preds = %755
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76), !noalias !3806
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77), !noalias !3806
   br label %.backedge.i.us45.i.i.i
@@ -21137,30 +21139,31 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
   br i1 %804, label %805, label %.invoke.i119.i, !prof !204
 
 805:                                              ; preds = %800
-  %806 = load i64, ptr %802, align 8, !noalias !3805, !noundef !14
-  %807 = icmp ult i64 %806, %621
-  br i1 %807, label %808, label %.invoke.i119.i, !prof !204
+  %806 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %803
+  %807 = load i64, ptr %806, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %802, i64 8) ]
+  %808 = load i64, ptr %802, align 8, !noalias !3805, !noundef !14
+  %809 = icmp ult i64 %808, %621
+  br i1 %809, label %810, label %.invoke.i119.i, !prof !204
 
-808:                                              ; preds = %805
-  %809 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %803
-  %810 = load i64, ptr %809, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
-  %811 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %806
+810:                                              ; preds = %805
+  %811 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %808
   %812 = load i64, ptr %811, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
-  %.not77.i.i.i.i = icmp eq i64 %810, %812
+  %.not77.i.i.i.i = icmp eq i64 %807, %812
   br i1 %.not77.i.i.i.i, label %813, label %.critedge.i.i.i.i
 
-813:                                              ; preds = %808
+813:                                              ; preds = %810
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76), !noalias !3806
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77), !noalias !3806
   br label %.backedge.i.i.i.i
 
-.critedge.i.i.i.i.loopexit791:                    ; preds = %753
+.critedge.i.i.i.i.loopexit791:                    ; preds = %755
   %814 = getelementptr inbounds i8, ptr %.sroa.0118.0179.i.us40.i.i.i, i64 16
   br label %.critedge.i.i.i.i
 
-.critedge.i.i.i.i:                                ; preds = %808, %.critedge.i.i.i.i.loopexit791
-  %.us-phi54.i.i.i = phi ptr [ %.sroa.0118.0179.i.us40.i.i.i, %.critedge.i.i.i.i.loopexit791 ], [ %.sroa.0118.0179.i.i.i.i, %808 ]
-  %.us-phi55.i.i.i = phi ptr [ %814, %.critedge.i.i.i.i.loopexit791 ], [ %781, %808 ]
+.critedge.i.i.i.i:                                ; preds = %810, %.critedge.i.i.i.i.loopexit791
+  %.us-phi54.i.i.i = phi ptr [ %.sroa.0118.0179.i.us40.i.i.i, %.critedge.i.i.i.i.loopexit791 ], [ %.sroa.0118.0179.i.i.i.i, %810 ]
+  %.us-phi55.i.i.i = phi ptr [ %814, %.critedge.i.i.i.i.loopexit791 ], [ %781, %810 ]
   %815 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3806
   %816 = icmp ult i64 %815, 6
   call void @llvm.assume(i1 %816)
@@ -21344,23 +21347,24 @@ _ZN15tree_sitter_cli8generate12build_tables20minimize_parse_table9Minimizer11sym
   br i1 %878, label %879, label %.invoke.i119.i, !prof !204
 
 879:                                              ; preds = %875
-  %880 = load i64, ptr %876, align 8, !noalias !3804, !noundef !14
-  %881 = icmp ult i64 %880, %621
-  br i1 %881, label %882, label %.invoke.i119.i, !prof !204
+  %880 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %877
+  %881 = load i64, ptr %880, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %876, i64 8) ]
+  %882 = load i64, ptr %876, align 8, !noalias !3804, !noundef !14
+  %883 = icmp ult i64 %882, %621
+  br i1 %883, label %884, label %.invoke.i119.i, !prof !204
 
-882:                                              ; preds = %879
-  %883 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %877
-  %884 = load i64, ptr %883, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
-  %885 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %880
+884:                                              ; preds = %879
+  %885 = getelementptr inbounds [0 x i64], ptr %620, i64 0, i64 %882
   %886 = load i64, ptr %885, align 8, !alias.scope !3807, !noalias !3808, !noundef !14
-  %.not74.i.i.i.i = icmp eq i64 %884, %886
+  %.not74.i.i.i.i = icmp eq i64 %881, %886
   br i1 %.not74.i.i.i.i, label %887, label %.critedge81.i.i.i.i
 
-887:                                              ; preds = %882
+887:                                              ; preds = %884
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81), !noalias !3806
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17he3bf4d9ac4ef879aE.exit.thread.i.i.i.i"
 
-.critedge81.i.i.i.i:                              ; preds = %882
+.critedge81.i.i.i.i:                              ; preds = %884
   %888 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h300ea6705dd1f123E monotonic, align 8, !noalias !3806
   %889 = icmp ult i64 %888, 6
   call void @llvm.assume(i1 %889)
@@ -29437,6 +29441,7 @@ _ZN15tree_sitter_cli8generate12build_tables17identify_keywords17hccd3c60996754cb
   br i1 %1353, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %1422
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %1351
+  call void @llvm.assume(i1 true) [ "align"(ptr %1349, i64 8) ]
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71 = load i64, ptr %1349, align 8, !noalias !5431, !noundef !14
   %1354 = and i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71, 1
   %1355 = icmp eq i64 %1354, 0
@@ -29607,6 +29612,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7d874ab85e4ba1ebE.exit.i.i.i.i
   br i1 %1429, label %.lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i.i.i, label %1499
 
 .lr.ph.i.i.i.i.i.i5.i.i.i.i.i.i.i.i:              ; preds = %1427
+  call void @llvm.assume(i1 true) [ "align"(ptr %1425, i64 8) ]
   %.val.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = load i64, ptr %1425, align 8, !noalias !5477, !noundef !14
   %1430 = and i64 %.val.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, 1
   %1431 = icmp eq i64 %1430, 0

@@ -27746,6 +27746,7 @@ define hidden void @_ZN11ide_assists8handlers35convert_tuple_return_type_to_stru
   %30 = load ptr, ptr %29, align 8, !alias.scope !7704, !noalias !7709, !nonnull !23, !noundef !23
   %31 = getelementptr inbounds i8, ptr %23, i64 -8
   %32 = load i64, ptr %31, align 8, !alias.scope !7704, !noalias !7709, !noundef !23
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 4) ]
   %33 = load i32, ptr %28, align 4, !noundef !23
   call void @_ZN6ide_db13source_change19SourceChangeBuilder9edit_file17hbf30d86f324466b5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %33)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
@@ -64425,13 +64426,10 @@ define hidden void @_ZN11ide_assists8handlers10remove_dbg23compute_dbg_replaceme
           to label %311 unwind label %.thread230
 
 305:                                              ; preds = %296
-  switch i64 %300, label %switch.lookup [
+  switch i64 %300, label %306 [
     i64 19, label %307
     i64 25, label %307
     i64 28, label %307
-    i64 4, label %309
-    i64 8, label %309
-    i64 26, label %309
   ]
 
 switch.hole_check:                                ; preds = %307
@@ -64446,15 +64444,18 @@ switch.lookup274:                                 ; preds = %309
   %switch.masked = trunc i31 %switch.downshift to i1
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %switch.hole_check, %switch.lookup274, %309, %305, %306, %296
-  %.196 = phi i1 [ false, %296 ], [ false, %309 ], [ false, %306 ], [ false, %305 ], [ %switch.masked, %switch.lookup274 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %switch.hole_check, %switch.lookup274, %309, %306, %296
+  %.196 = phi i1 [ false, %296 ], [ false, %309 ], [ false, %306 ], [ %switch.masked, %switch.lookup274 ], [ true, %switch.hole_check ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.14339125420948612040"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %298)
           to label %"_ZN4core3ptr106drop_in_place$LT$$LP$$RF$syntax..ast..generated..nodes..Expr$C$syntax..ast..generated..nodes..Expr$RP$$GT$17h92c2b8b059c4aa4aE.exit" unwind label %.thread230
 
-306:                                              ; preds = %switch.hole_check, %307
+306:                                              ; preds = %switch.hole_check, %307, %305
+  call void @llvm.assume(i1 true) [ "align"(ptr %186, i64 8) ]
   switch i64 %300, label %switch.lookup [
-    i64 26, label %309
+    i64 4, label %309
+    i64 8, label %309
     i64 19, label %309
+    i64 26, label %309
   ]
 
 307:                                              ; preds = %305, %305, %305
@@ -64462,7 +64463,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %308 = icmp ult i64 %switch.tableidx, 29
   br i1 %308, label %switch.hole_check, label %306
 
-309:                                              ; preds = %306, %306, %305, %305, %305
+309:                                              ; preds = %306, %306, %306, %306
   %310 = icmp ult i64 %294, 31
   br i1 %310, label %switch.lookup274, label %switch.lookup
 

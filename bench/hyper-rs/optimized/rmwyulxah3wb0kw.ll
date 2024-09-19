@@ -193,6 +193,7 @@ define hidden void @"_ZN4core3ptr136drop_in_place$LT$hyper..common..io..rewind..
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !39, !nonnull !5, !noundef !5
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -590,6 +591,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$byte
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !136, !nonnull !5, !noundef !5
   %8 = getelementptr inbounds i8, ptr %0, i64 24
