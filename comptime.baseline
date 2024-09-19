@@ -9427,7 +9427,7 @@ grpc/default_event_engine.cc.ll 363556958
 grpc/default_event_engine_factory.cc.ll 72838762
 grpc/directory_reader.cc.ll 108798198
 grpc/dns_resolver.cc.ll 784728058
-grpc/dns_resolver_ares.cc.ll 2084589847
+grpc/dns_resolver_ares.cc.ll 2086674440
 grpc/dns_resolver_plugin.cc.ll 110953222
 grpc/dualstack_socket_posix.cc.ll 45056219
 grpc/dynamic_filters.cc.ll 275627221
@@ -16064,7 +16064,7 @@ llvm/M68k.cpp.ll 557921333
 llvm/MBFIWrapper.cpp.ll 245503072
 llvm/MCAsmBackend.cpp.ll 716073877
 llvm/MCAsmInfo.cpp.ll 852472719
-llvm/MCAsmInfoCOFF.cpp.ll 59322119
+llvm/MCAsmInfoCOFF.cpp.ll 59381580
 llvm/MCAsmInfoDarwin.cpp.ll 75077664
 llvm/MCAsmInfoELF.cpp.ll 58784843
 llvm/MCAsmInfoGOFF.cpp.ll 49281765
@@ -34662,7 +34662,7 @@ ripgrep-rs/2jrzq75k8mdff4l.ll 2550027887
 ripgrep-rs/2mz20uvgqo41gw9v.ll 77801753
 ripgrep-rs/2o34yknt0qgloo1w.ll 437558011
 ripgrep-rs/2p1zdy53av8fhei3.ll 224366672
-ripgrep-rs/2qjsj78de16pqeye.ll 114327012
+ripgrep-rs/2qjsj78de16pqeye.ll 114441398
 ripgrep-rs/2tdjht0mwe9cctwp.ll 3477926014
 ripgrep-rs/3460pcns2olc4hp3.ll 299792208
 ripgrep-rs/363g4gfm30zj5qub.ll 341076277
