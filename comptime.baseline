@@ -23462,7 +23462,7 @@ openjdk/ByteBinary2Bit.ll 618395233
 openjdk/ByteBinary4Bit.ll 616351067
 openjdk/ByteGray.ll 845669126
 openjdk/ByteIndexed.ll 1400855701
-openjdk/CDS.ll 41457501
+openjdk/CDS.ll 41499216
 openjdk/CRC32.ll 43283623
 openjdk/CUPSfuncs.ll 198095049
 openjdk/CfgFile.ll 1064599365
@@ -30880,7 +30880,7 @@ postgres/brin_xlog.ll 130061268
 postgres/bsearch_arg.ll 42554485
 postgres/bsearch_arg_shlib.ll 42530298
 postgres/bsearch_arg_srv.ll 42551032
-postgres/buf_init.ll 60064899
+postgres/buf_init.ll 60125073
 postgres/buffile.ll 253043930
 postgres/bufmgr.ll 1616100885
 postgres/bufpage.ll 406538434
@@ -33255,7 +33255,7 @@ qemu/util_lockcnt.c.ll 167790711
 qemu/util_log.c.ll 195702823
 qemu/util_memalign.c.ll 64607866
 qemu/util_memfd.c.ll 63673057
-qemu/util_mmap-alloc.c.ll 110232155
+qemu/util_mmap-alloc.c.ll 110342562
 qemu/util_module.c.ll 63113170
 qemu/util_nvdimm-utils.c.ll 40065146
 qemu/util_osdep.c.ll 131621784
