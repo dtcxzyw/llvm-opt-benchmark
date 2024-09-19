@@ -525,7 +525,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @bdrv_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_mark_corrupt(ptr noundef %bs) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_mark_corrupt(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -538,7 +538,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_update_header(ptr noundef %bs) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_update_header(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1199,7 +1199,7 @@ if.then21:                                        ; preds = %if.end
   %8 = load i64, ptr %incompatible_features.i, align 8
   %or.i = or i64 %8, 2
   store i64 %or.i, ptr %incompatible_features.i, align 8
-  %call.i = call i32 @qcow2_update_header(ptr noundef nonnull %bs)
+  %call.i = call range(i32 -2147483648, 1) i32 @qcow2_update_header(ptr noundef nonnull %bs)
   %drv = getelementptr inbounds i8, ptr %bs, i64 16
   store ptr null, ptr %drv, align 8
   br label %if.end23
@@ -1632,7 +1632,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_create(ptr nocapture noundef %create_options, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_create(ptr nocapture noundef %create_options, ptr noundef %errp) #0 {
 entry:
   %0 = load i32, ptr %create_options, align 8
   %cmp = icmp eq i32 %0, 29
@@ -3380,7 +3380,7 @@ declare i32 @qcow2_snapshot_list(ptr noundef, ptr noundef) #2
 declare i32 @qcow2_snapshot_load_tmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_change_backing_file(ptr noundef %bs, ptr noundef %backing_file, ptr noundef %backing_fmt) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_change_backing_file(ptr noundef %bs, ptr noundef %backing_file, ptr noundef %backing_fmt) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -4720,7 +4720,7 @@ trace_qcow2_writev_done_req.exit:                 ; preds = %qcow2_handle_l2meta
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_block_status(ptr noundef %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -2147483648, 256) i32 @qcow2_co_block_status(ptr noundef %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %host_offset = alloca i64, align 8
   %bytes = alloca i32, align 4
@@ -6673,7 +6673,7 @@ declare i32 @qcow2_reopen_bitmaps_ro(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @bdrv_flush(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcow2_mark_clean(ptr noundef %bs) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_mark_clean(ptr noundef %bs) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -7791,7 +7791,7 @@ if.then522:                                       ; preds = %if.then518
   br label %fail
 
 if.end525:                                        ; preds = %if.then518, %if.end516
-  %ret.3 = phi i32 [ %call519, %if.then518 ], [ %ret.2, %if.end516 ]
+  %ret.3 = phi i32 [ 0, %if.then518 ], [ %ret.2, %if.end516 ]
   %124 = load i32, ptr %version, align 4
   %cmp527 = icmp ugt i32 %124, 2
   %cond529 = select i1 %cmp527, i32 260, i32 0
@@ -8847,7 +8847,7 @@ declare i32 @qcow2_check_refcounts(ptr noundef, ptr noundef, i32 noundef) #2
 declare i32 @qcow2_check_fix_snapshot_table(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_mark_consistent(ptr noundef %bs) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_mark_consistent(ptr noundef %bs) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -9086,12 +9086,11 @@ if.then3:                                         ; preds = %if.end
   br label %out
 
 out:                                              ; preds = %if.end, %if.then3
-  %ret.0 = phi i32 [ %call2, %if.then3 ], [ 0, %if.end ]
   tail call void @qcrypto_block_free(ptr noundef nonnull %call) #23
   br label %return
 
 return:                                           ; preds = %sw.epilog, %out, %sw.default
-  %retval.0 = phi i32 [ -22, %sw.default ], [ %ret.0, %out ], [ -22, %sw.epilog ]
+  %retval.0 = phi i32 [ -22, %sw.default ], [ %call2, %out ], [ -22, %sw.epilog ]
   ret i32 %retval.0
 }
 

@@ -181,7 +181,7 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #3
 declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define hidden i32 @ruby_marshal_write_long(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define hidden range(i32 1, 0) i32 @ruby_marshal_write_long(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = add i64 %0, 2147483648
   %or.cond33 = icmp ult i64 %3, 4294967296
   br i1 %or.cond33, label %4, label %.loopexit
@@ -350,7 +350,7 @@ define hidden void @Init_builtin_marshal() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @marshal_load(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+define internal range(i64 37, 36) i64 @marshal_load(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
   %6 = and i64 %4, -5
   %7 = icmp ne i64 %6, 0
   %8 = tail call fastcc i64 @rb_marshal_load_with_proc(i64 noundef %2, i64 noundef %3, i1 noundef zeroext %7)
@@ -641,13 +641,13 @@ clear_dump_arg.exit:                              ; preds = %64, %70, %72
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_marshal_load(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_marshal_load(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @rb_marshal_load_with_proc(i64 noundef %0, i64 noundef 4, i1 noundef zeroext false)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_marshal_load_with_proc(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i64 37, 36) i64 @rb_marshal_load_with_proc(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = zext i1 %2 to i8
@@ -759,7 +759,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %19, %26
 
 60:                                               ; preds = %59, %57
   %61 = tail call fastcc i32 @r_byte(ptr noundef nonnull %28)
-  %62 = tail call fastcc i64 @r_object_for(ptr noundef nonnull %28, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %61)
+  %62 = tail call fastcc range(i64 37, 36) i64 @r_object_for(ptr noundef nonnull %28, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %61)
   %63 = load ptr, ptr %43, align 8
   tail call void @ruby_xfree(ptr noundef %63) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false)
@@ -4433,7 +4433,7 @@ define internal i64 @memsize_load_arg(ptr nocapture noundef readonly %0) #9 {
 declare void @rb_mark_tbl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @r_object_for(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc range(i64 37, 36) i64 @r_object_for(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -4851,20 +4851,20 @@ RB_FL_TEST.exit573:                               ; preds = %169
   %197 = tail call i64 @rb_class_inherited_p(i64 noundef %164, i64 noundef %196) #26
   %198 = and i64 %197, -5
   %.not801 = icmp eq i64 %198, 0
-  br i1 %.not801, label %199, label %RBASIC_SET_CLASS.exit
+  br i1 %.not801, label %199, label %.thread1035
 
 199:                                              ; preds = %189, %194
   %200 = tail call i64 @rb_obj_alloc(i64 noundef %164) #21
   %201 = tail call fastcc i32 @rb_type(i64 noundef %184) #26
   %202 = tail call fastcc i32 @rb_type(i64 noundef %200) #26
   %.not543 = icmp eq i32 %201, %202
-  br i1 %.not543, label %RBASIC_SET_CLASS.exit, label %204
+  br i1 %.not543, label %.thread1035, label %204
 
-RBASIC_SET_CLASS.exit:                            ; preds = %199, %194
+.thread1035:                                      ; preds = %194, %199
   %203 = getelementptr inbounds i8, ptr %190, i64 8
   store i64 %164, ptr %203, align 8
   tail call void @rb_gc_writebarrier(i64 noundef %184, i64 noundef %164) #21
-  br label %1299
+  br label %1303
 
 204:                                              ; preds = %189, %189, %199, %183
   %205 = load i64, ptr @rb_eArgError, align 8
@@ -7075,8 +7075,8 @@ r_entry0.exit761:                                 ; preds = %1268, %1275
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1298, ptr noundef nonnull @.str.75, i32 noundef %4) #22
   unreachable
 
-1299:                                             ; preds = %r_post_proc.exit, %971, %891, %897, %73, %78, %1294, %1291, %r_entry0.exit761, %r_entry0.exit745, %r_entry0.exit729, %check_load_arg.exit715, %r_entry0.exit708, %._crit_edge, %668, %._crit_edge905, %r_entry0.exit637, %r_entry0.exit619, %r_entry0.exit616, %r_entry0.exit, %r_long.exit584, %210, %208, %206, %RBASIC_SET_CLASS.exit, %.loopexit, %85
-  %.0499 = phi i64 [ %1296, %1294 ], [ %1293, %1291 ], [ %1284, %r_entry0.exit761 ], [ %1214, %r_entry0.exit745 ], [ %1144, %r_entry0.exit729 ], [ %1084, %check_load_arg.exit715 ], [ %1023, %r_entry0.exit708 ], [ %966, %r_post_proc.exit ], [ %966, %971 ], [ %.3, %891 ], [ %898, %897 ], [ %829, %._crit_edge ], [ %669, %668 ], [ %593, %._crit_edge905 ], [ %529, %r_entry0.exit637 ], [ %449, %r_entry0.exit619 ], [ %431, %r_entry0.exit616 ], [ %342, %r_entry0.exit ], [ %251, %r_long.exit584 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %184, %RBASIC_SET_CLASS.exit ], [ %153, %.loopexit ], [ %86, %85 ], [ %74, %73 ], [ %79, %78 ]
+1299:                                             ; preds = %r_post_proc.exit, %971, %891, %897, %73, %78, %1294, %1291, %r_entry0.exit761, %r_entry0.exit745, %r_entry0.exit729, %check_load_arg.exit715, %r_entry0.exit708, %._crit_edge, %668, %._crit_edge905, %r_entry0.exit637, %r_entry0.exit619, %r_entry0.exit616, %r_entry0.exit, %r_long.exit584, %210, %208, %206, %.loopexit, %85
+  %.0499 = phi i64 [ %1296, %1294 ], [ %1293, %1291 ], [ %1284, %r_entry0.exit761 ], [ %1214, %r_entry0.exit745 ], [ %1144, %r_entry0.exit729 ], [ %1084, %check_load_arg.exit715 ], [ %1023, %r_entry0.exit708 ], [ %966, %r_post_proc.exit ], [ %966, %971 ], [ %.3, %891 ], [ %898, %897 ], [ %829, %._crit_edge ], [ %669, %668 ], [ %593, %._crit_edge905 ], [ %529, %r_entry0.exit637 ], [ %449, %r_entry0.exit619 ], [ %431, %r_entry0.exit616 ], [ %342, %r_entry0.exit ], [ %251, %r_long.exit584 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %153, %.loopexit ], [ %86, %85 ], [ %74, %73 ], [ %79, %78 ]
   %1300 = icmp eq i64 %.0499, 36
   br i1 %1300, label %1301, label %1303
 
@@ -7085,8 +7085,9 @@ r_entry0.exit761:                                 ; preds = %1268, %1275
   call void (i64, ptr, ...) @rb_raise(i64 noundef %1302, ptr noundef nonnull @.str.76) #22
   unreachable
 
-1303:                                             ; preds = %1299
-  ret i64 %.0499
+1303:                                             ; preds = %.thread1035, %1299
+  %.04991037 = phi i64 [ %184, %.thread1035 ], [ %.0499, %1299 ]
+  ret i64 %.04991037
 }
 
 declare i64 @rb_hash_new_with_size(i64 noundef) local_unnamed_addr #1

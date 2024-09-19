@@ -27985,7 +27985,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %24, %_ZNSt11char_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i64 -1, 4294967296) i64 @_ZN4llvm15GetStringLengthEPKNS_5ValueEj(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4llvm15GetStringLengthEPKNS_5ValueEj(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallPtrSet.151", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -40319,7 +40319,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm18isImpliedConditionEPKNS_5Value
   store ptr %1, ptr %6, align 8
   %12 = zext i1 %3 to i8
   %13 = icmp eq ptr %0, %1
-  br i1 %13, label %87, label %14
+  br i1 %13, label %91, label %14
 
 14:                                               ; preds = %5
   store ptr null, ptr %7, align 8
@@ -40381,7 +40381,7 @@ _ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5
 
 37:                                               ; preds = %33
   %38 = xor i8 %12, 1
-  br label %87
+  br label %91
 
 _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS3_EELj30ELb1EEEEEbPT_RKT0_.exit.thread: ; preds = %31, %14, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit11.i.i.i, %33
   %.0 = phi i8 [ 1, %33 ], [ 0, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit11.i.i.i ], [ 0, %14 ], [ 0, %31 ]
@@ -40401,17 +40401,17 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
   %49 = load ptr, ptr %48, align 8
   %50 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueENS_7CmpInst9PredicateES2_S2_RKNS_10DataLayoutEbj(ptr noundef %0, i32 noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %4)
   %.not61 = icmp ult i16 %50, 256
-  br i1 %.not61, label %87, label %51
+  br i1 %.not61, label %91, label %51
 
 51:                                               ; preds = %41
   %.sroa.037.0.extract.trunc = trunc i16 %50 to i8
   %.sroa.037.0.extract.trunc.masked = and i8 %.sroa.037.0.extract.trunc, 1
   %52 = xor i8 %.sroa.037.0.extract.trunc.masked, %.0
-  br label %87
+  br label %91
 
 53:                                               ; preds = %_ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_7bind_tyIS3_EELj30ELb1EEEEEbPT_RKT0_.exit.thread
   %54 = icmp eq i32 %4, 6
-  br i1 %54, label %87, label %55
+  br i1 %54, label %91, label %55
 
 55:                                               ; preds = %53
   store ptr %8, ptr %10, align 8
@@ -40433,7 +40433,7 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
 
 64:                                               ; preds = %62
   %65 = xor i8 %.0, 1
-  br label %87
+  br label %91
 
 66:                                               ; preds = %62, %58
   %67 = load ptr, ptr %9, align 8
@@ -40447,7 +40447,7 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
 
 71:                                               ; preds = %69
   %72 = xor i8 %.0, 1
-  br label %87
+  br label %91
 
 73:                                               ; preds = %66, %69, %55
   %74 = load ptr, ptr %6, align 8
@@ -40455,27 +40455,31 @@ _ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_t
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %75, align 8
   %76 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15LogicalOp_matchINS0_7bind_tyIKNS_5ValueEEES5_Lj28ELb0EE5matchIS4_EEbPT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %74)
-  br i1 %76, label %77, label %87
+  br i1 %76, label %77, label %91
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %8, align 8
   %79 = add i32 %4, 1
   %80 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef %0, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %79)
-  %81 = and i16 %80, 257
-  %or.cond = icmp eq i16 %81, 256
-  br i1 %or.cond, label %87, label %82
+  %81 = icmp ugt i16 %80, 255
+  %82 = and i16 %80, 1
+  %83 = icmp eq i16 %82, 0
+  %or.cond = and i1 %81, %83
+  br i1 %or.cond, label %91, label %84
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %9, align 8
-  %84 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef %0, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %79)
-  %85 = and i16 %84, 257
-  %or.cond57 = icmp eq i16 %85, 256
-  %86 = select i1 %or.cond57, i16 256, i16 0
-  br label %87
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %9, align 8
+  %86 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef %0, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext %3, i32 noundef %79)
+  %87 = icmp ugt i16 %86, 255
+  %88 = and i16 %86, 1
+  %89 = icmp eq i16 %88, 0
+  %or.cond57 = and i1 %87, %89
+  %90 = select i1 %or.cond57, i16 256, i16 0
+  br label %91
 
-87:                                               ; preds = %82, %77, %5, %73, %53, %41, %71, %64, %51, %37
-  %.sroa.053.0 = phi i8 [ %38, %37 ], [ %65, %64 ], [ %72, %71 ], [ %52, %51 ], [ undef, %41 ], [ undef, %53 ], [ undef, %73 ], [ %12, %5 ], [ %.0, %77 ], [ %.0, %82 ]
-  %.sroa.8.0 = phi i16 [ 256, %37 ], [ 256, %64 ], [ 256, %71 ], [ 256, %51 ], [ 0, %41 ], [ 0, %53 ], [ 0, %73 ], [ 256, %5 ], [ 256, %77 ], [ %86, %82 ]
+91:                                               ; preds = %84, %77, %5, %73, %53, %41, %71, %64, %51, %37
+  %.sroa.053.0 = phi i8 [ %38, %37 ], [ %65, %64 ], [ %72, %71 ], [ %52, %51 ], [ undef, %41 ], [ undef, %53 ], [ undef, %73 ], [ %12, %5 ], [ %.0, %77 ], [ %.0, %84 ]
+  %.sroa.8.0 = phi i16 [ 256, %37 ], [ 256, %64 ], [ 256, %71 ], [ 256, %51 ], [ 0, %41 ], [ 0, %53 ], [ 0, %73 ], [ 256, %5 ], [ 256, %77 ], [ %90, %84 ]
   %.sroa.053.0.insert.ext = zext i8 %.sroa.053.0 to i16
   %.sroa.053.0.insert.insert = or disjoint i16 %.sroa.8.0, %.sroa.053.0.insert.ext
   ret i16 %.sroa.053.0.insert.insert

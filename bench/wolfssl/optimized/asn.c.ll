@@ -242,7 +242,7 @@ if.end:                                           ; preds = %for.inc.i20, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetLength(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetLength(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   store i32 0, ptr %len, align 4
@@ -343,7 +343,7 @@ GetLength_ex.exit:                                ; preds = %entry, %if.else12.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetLength_ex(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetLength_ex(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   store i32 0, ptr %len, align 4
@@ -475,7 +475,7 @@ if.end13:                                         ; preds = %entry, %if.then5, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetSequence(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetSequence(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   %cmp3.i.not.i.i = icmp eq ptr %input, null
@@ -587,7 +587,7 @@ GetASNHeader.exit:                                ; preds = %entry, %if.then5.i.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetSequence_ex(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetSequence_ex(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   %cmp3.i.not.i = icmp eq ptr %input, null
@@ -701,7 +701,7 @@ GetASNHeader_ex.exit:                             ; preds = %entry, %if.then5.i.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetSet(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetSet(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   %cmp3.i.not.i.i = icmp eq ptr %input, null
@@ -813,7 +813,7 @@ GetASNHeader.exit:                                ; preds = %entry, %if.then5.i.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetSet_ex(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetSet_ex(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   %cmp3.i.not.i = icmp eq ptr %input, null
@@ -927,7 +927,7 @@ GetASNHeader_ex.exit:                             ; preds = %entry, %if.then5.i.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetOctetString(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetOctetString(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   %cmp3.i.not.i.i = icmp eq ptr %input, null
@@ -1281,7 +1281,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetASNInt(i32 noundef %len, i8 noundef zeroext %firstByte, ptr noundef writeonly %output) local_unnamed_addr #4 {
+define range(i32 -2147483647, -2147483648) i32 @SetASNInt(i32 noundef %len, i8 noundef zeroext %firstByte, ptr noundef writeonly %output) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %output, null
   br i1 %tobool.not, label %if.end, label %if.end.thread
@@ -2437,7 +2437,7 @@ sw.epilog122:                                     ; preds = %entry, %sw.bb114, %
 declare i32 @wc_ecc_get_oid(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 1) i32 @GetASNObjectId(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
+define range(i32 -140, 1) i32 @GetASNObjectId(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   %cmp3.i.not.i.i = icmp eq ptr %input, null
@@ -2633,7 +2633,7 @@ SetLength.exit:                                   ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @GetObjectId(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef %oid, i32 noundef %oidType, i32 noundef %maxIdx) local_unnamed_addr #5 {
+define range(i32 -148, 1) i32 @GetObjectId(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef %oid, i32 noundef %oidType, i32 noundef %maxIdx) local_unnamed_addr #5 {
 entry:
   %checkOidSz.i = alloca i32, align 4
   %0 = load i32, ptr %inOutIdx, align 4
@@ -3751,7 +3751,7 @@ return:                                           ; preds = %if.then5.i.i.i.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @DecodeRsaPssParams(ptr noundef %params, i32 noundef %sz, ptr nocapture noundef nonnull writeonly %hash, ptr nocapture noundef nonnull writeonly %mgf, ptr nocapture noundef nonnull writeonly %saltLen) unnamed_addr #5 {
+define internal fastcc range(i32 -173, 1) i32 @DecodeRsaPssParams(ptr noundef %params, i32 noundef %sz, ptr nocapture noundef nonnull writeonly %hash, ptr nocapture noundef nonnull writeonly %mgf, ptr nocapture noundef nonnull writeonly %saltLen) unnamed_addr #5 {
 entry:
   %idx = alloca i32, align 4
   %oid = alloca i32, align 4
@@ -12864,7 +12864,7 @@ if.end33.i:                                       ; preds = %if.end45.i.i.i.i51.
   store i32 0, ptr %oid.i, align 4
   %call34.i = call i32 @GetObjectId(ptr noundef nonnull %arrayidx, ptr noundef nonnull %idx.i, ptr noundef nonnull %oid.i, i32 noundef 6, i32 noundef %sub)
   %cmp35.i = icmp slt i32 %call34.i, 0
-  br i1 %cmp35.i, label %if.then27, label %if.end40.i
+  br i1 %cmp35.i, label %if.then27.thread, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end33.i
   %17 = load i32, ptr %idx.i, align 4
@@ -16169,31 +16169,26 @@ while.end.loopexit.i:                             ; preds = %if.end80.i
 if.then27.thread187:                              ; preds = %while.end.loopexit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %oid.i)
-  br label %if.then29
+  store i32 -160, ptr %criticalExt, align 4
+  br label %if.end33
 
 DecodeCertExtensions.exit:                        ; preds = %while.end.loopexit.i, %while.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %oid.i)
   br label %if.end33
 
-if.then27.thread:                                 ; preds = %if.then5.i.i.i.i113.i, %GetASNTag.exit.i.i.i116.i, %land.lhs.true9.i.i.i121.i, %if.else12.i.i.i.i140.i, %if.end22.i.i.i.i146.i, %while.end.i.i.i.i167.i, %if.end45.i.i.i.i129.i, %if.end22.thread.i.i.i.i174.i, %if.then54.i, %if.end4.i.i, %if.then5.i.i.i.i35.i, %land.lhs.true9.i.i.i43.i, %if.else12.i.i.i.i62.i, %if.end22.i.i.i.i68.i, %while.end.i.i.i.i89.i, %if.end45.i.i.i.i51.i, %if.end22.thread.i.i.i.i96.i, %if.end40.i, %GetASNTag.exit.i.i.i.i, %land.lhs.true9.i.i.i.i, %if.else12.i.i.i.i.i, %if.end22.i.i.i.i.i, %while.end.i.i.i.i.i, %if.end45.i.i.i.i.i, %if.end22.thread.i.i.i.i.i, %if.end22.thread.i.i.i, %if.end45.i.i.i, %while.end.i.i.i, %if.end22.i.i.i, %if.else12.i.i.i, %GetASNTag.exit.i, %if.end20
-  %retval.0.i.ph.ph = phi i32 [ -173, %if.end20 ], [ -140, %GetASNTag.exit.i ], [ -140, %if.else12.i.i.i ], [ -140, %if.end22.i.i.i ], [ -140, %while.end.i.i.i ], [ -140, %if.end45.i.i.i ], [ -140, %if.end22.thread.i.i.i ], [ -140, %if.end22.thread.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i.i ], [ -140, %if.then5.i.i.i.i113.i ], [ -140, %GetASNTag.exit.i.i.i116.i ], [ -140, %land.lhs.true9.i.i.i121.i ], [ -140, %if.else12.i.i.i.i140.i ], [ -140, %if.end22.i.i.i.i146.i ], [ -140, %while.end.i.i.i.i167.i ], [ -140, %if.end45.i.i.i.i129.i ], [ -140, %if.end22.thread.i.i.i.i174.i ], [ -132, %if.then54.i ], [ -140, %if.end4.i.i ], [ -140, %if.then5.i.i.i.i35.i ], [ -140, %land.lhs.true9.i.i.i43.i ], [ -140, %if.else12.i.i.i.i62.i ], [ -140, %if.end22.i.i.i.i68.i ], [ -140, %while.end.i.i.i.i89.i ], [ -140, %if.end45.i.i.i.i51.i ], [ -140, %if.end22.thread.i.i.i.i96.i ], [ -132, %if.end40.i ]
+if.then27.thread:                                 ; preds = %if.then5.i.i.i.i113.i, %GetASNTag.exit.i.i.i116.i, %land.lhs.true9.i.i.i121.i, %if.else12.i.i.i.i140.i, %if.end22.i.i.i.i146.i, %while.end.i.i.i.i167.i, %if.end45.i.i.i.i129.i, %if.end22.thread.i.i.i.i174.i, %if.then54.i, %if.end4.i.i, %if.then5.i.i.i.i35.i, %land.lhs.true9.i.i.i43.i, %if.else12.i.i.i.i62.i, %if.end22.i.i.i.i68.i, %while.end.i.i.i.i89.i, %if.end45.i.i.i.i51.i, %if.end22.thread.i.i.i.i96.i, %if.end40.i, %if.end33.i, %GetASNTag.exit.i.i.i.i, %land.lhs.true9.i.i.i.i, %if.else12.i.i.i.i.i, %if.end22.i.i.i.i.i, %while.end.i.i.i.i.i, %if.end45.i.i.i.i.i, %if.end22.thread.i.i.i.i.i, %if.end22.thread.i.i.i, %if.end45.i.i.i, %while.end.i.i.i, %if.end22.i.i.i, %if.else12.i.i.i, %GetASNTag.exit.i, %if.end20
+  %retval.0.i.ph.ph = phi i32 [ -173, %if.end20 ], [ -140, %GetASNTag.exit.i ], [ -140, %if.else12.i.i.i ], [ -140, %if.end22.i.i.i ], [ -140, %while.end.i.i.i ], [ -140, %if.end45.i.i.i ], [ -140, %if.end22.thread.i.i.i ], [ -140, %if.end22.thread.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i.i ], [ -140, %if.then5.i.i.i.i113.i ], [ -140, %GetASNTag.exit.i.i.i116.i ], [ -140, %land.lhs.true9.i.i.i121.i ], [ -140, %if.else12.i.i.i.i140.i ], [ -140, %if.end22.i.i.i.i146.i ], [ -140, %while.end.i.i.i.i167.i ], [ -140, %if.end45.i.i.i.i129.i ], [ -140, %if.end22.thread.i.i.i.i174.i ], [ -132, %if.then54.i ], [ -140, %if.end4.i.i ], [ -140, %if.then5.i.i.i.i35.i ], [ -140, %land.lhs.true9.i.i.i43.i ], [ -140, %if.else12.i.i.i.i62.i ], [ -140, %if.end22.i.i.i.i68.i ], [ -140, %while.end.i.i.i.i89.i ], [ -140, %if.end45.i.i.i.i51.i ], [ -140, %if.end22.thread.i.i.i.i96.i ], [ -132, %if.end40.i ], [ %call34.i, %if.end33.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %oid.i)
   br label %return
 
-if.then27:                                        ; preds = %if.end33.i, %DecodeExtensionType.exit.i
-  %retval.0.i.ph = phi i32 [ %retval.0.i177.fr.i, %DecodeExtensionType.exit.i ], [ %call34.i, %if.end33.i ]
+if.then27:                                        ; preds = %DecodeExtensionType.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %oid.i)
-  %cmp28 = icmp eq i32 %retval.0.i.ph, -160
-  br i1 %cmp28, label %if.then29, label %return
+  br label %return
 
-if.then29:                                        ; preds = %if.then27.thread187, %if.then27
-  store i32 -160, ptr %criticalExt, align 4
-  br label %if.end33
-
-if.end33:                                         ; preds = %DecodeCertExtensions.exit, %if.then29
+if.end33:                                         ; preds = %DecodeCertExtensions.exit, %if.then27.thread187
   %172 = load i32, ptr %sigIndex, align 4
   store i32 %172, ptr %srcIdx, align 8
   br label %if.end36
@@ -17127,8 +17122,8 @@ if.end342:                                        ; preds = %if.end330
   %283 = load i32, ptr %criticalExt343, align 4
   br label %return
 
-return:                                           ; preds = %for.body.i, %PermittedListOk.exit86.i, %PermittedListOk.exit.i, %land.lhs.true.i57.i, %land.lhs.true.i.i178, %if.then317, %ConfirmSignature.exit.thread206, %ConfirmSignature.exit.thread, %GetSignature.exit.thread, %if.then27.thread, %if.end342, %if.end330, %if.then265, %ConfirmSignature.exit, %if.then233, %if.end91, %land.lhs.true53, %if.end44, %if.end36, %if.then27, %if.then15, %if.then4, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %call, %if.then4 ], [ -141, %if.then15 ], [ %retval.0.i.ph, %if.then27 ], [ %call37, %if.end36 ], [ -152, %if.end44 ], [ -226, %land.lhs.true53 ], [ %ret.2, %if.end91 ], [ -238, %if.then233 ], [ %ret.5.i, %ConfirmSignature.exit ], [ -188, %if.then265 ], [ %282, %if.end330 ], [ %283, %if.end342 ], [ %retval.0.i.ph.ph, %if.then27.thread ], [ %retval.0.i151.ph, %GetSignature.exit.thread ], [ -173, %ConfirmSignature.exit.thread ], [ %ret.5.i.ph, %ConfirmSignature.exit.thread206 ], [ -198, %if.then317 ], [ -198, %land.lhs.true.i.i178 ], [ -198, %land.lhs.true.i57.i ], [ -198, %PermittedListOk.exit.i ], [ -198, %PermittedListOk.exit86.i ], [ -198, %for.body.i ]
+return:                                           ; preds = %for.body.i, %PermittedListOk.exit86.i, %PermittedListOk.exit.i, %land.lhs.true.i57.i, %land.lhs.true.i.i178, %if.then27, %if.then317, %ConfirmSignature.exit.thread206, %ConfirmSignature.exit.thread, %GetSignature.exit.thread, %if.then27.thread, %if.end342, %if.end330, %if.then265, %ConfirmSignature.exit, %if.then233, %if.end91, %land.lhs.true53, %if.end44, %if.end36, %if.then15, %if.then4, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ %call, %if.then4 ], [ -141, %if.then15 ], [ %retval.0.i177.fr.i, %if.then27 ], [ %call37, %if.end36 ], [ -152, %if.end44 ], [ -226, %land.lhs.true53 ], [ %ret.2, %if.end91 ], [ -238, %if.then233 ], [ %ret.5.i, %ConfirmSignature.exit ], [ -188, %if.then265 ], [ %282, %if.end330 ], [ %283, %if.end342 ], [ %retval.0.i.ph.ph, %if.then27.thread ], [ %retval.0.i151.ph, %GetSignature.exit.thread ], [ -173, %ConfirmSignature.exit.thread ], [ %ret.5.i.ph, %ConfirmSignature.exit.thread206 ], [ -198, %if.then317 ], [ -198, %land.lhs.true.i.i178 ], [ -198, %land.lhs.true.i57.i ], [ -198, %PermittedListOk.exit.i ], [ -198, %PermittedListOk.exit86.i ], [ -198, %for.body.i ]
   ret i32 %retval.0
 }
 
@@ -19540,7 +19535,7 @@ return:                                           ; preds = %entry, %GetASNTag.e
 declare i32 @wc_ecc_import_private_key_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @wc_EccPublicKeyDecode(ptr noundef %input, ptr noundef %inOutIdx, ptr noundef %key, i32 noundef %inSz) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_EccPublicKeyDecode(ptr noundef %input, ptr noundef %inOutIdx, ptr noundef %key, i32 noundef %inSz) local_unnamed_addr #5 {
 entry:
   %oidSz.i = alloca i32, align 4
   %length = alloca i32, align 4

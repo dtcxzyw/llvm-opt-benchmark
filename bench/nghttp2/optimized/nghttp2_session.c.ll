@@ -5193,7 +5193,7 @@ return:                                           ; preds = %if.then.i83, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @session_inflate_handle_invalid_stream(ptr noundef %session, ptr noundef %frame) unnamed_addr #1 {
+define internal fastcc range(i32 1, 0) i32 @session_inflate_handle_invalid_stream(ptr noundef %session, ptr noundef %frame) unnamed_addr #1 {
 entry:
   %stream_id.i = getelementptr inbounds i8, ptr %frame, i64 8
   %0 = load i32, ptr %stream_id.i, align 8
@@ -5228,7 +5228,7 @@ session_handle_invalid_stream.exit.thread5:       ; preds = %if.then2.i.i, %sess
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_on_response_headers_received(ptr noundef %session, ptr noundef %frame, ptr nocapture noundef %stream) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_response_headers_received(ptr noundef %session, ptr noundef %frame, ptr nocapture noundef %stream) local_unnamed_addr #1 {
 entry:
   %state = getelementptr inbounds i8, ptr %stream, i64 204
   %0 = load i32, ptr %state, align 4
@@ -5326,7 +5326,7 @@ return:                                           ; preds = %if.then.i, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_on_push_response_headers_received(ptr noundef %session, ptr noundef %frame, ptr noundef %stream) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_push_response_headers_received(ptr noundef %session, ptr noundef %frame, ptr noundef %stream) local_unnamed_addr #1 {
 entry:
   %state = getelementptr inbounds i8, ptr %stream, i64 204
   %0 = load i32, ptr %state, align 4
@@ -5575,7 +5575,7 @@ return:                                           ; preds = %if.then.i, %if.end2
 declare void @nghttp2_stream_promise_fulfilled(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_on_headers_received(ptr noundef %session, ptr noundef %frame, ptr nocapture noundef readonly %stream) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_headers_received(ptr noundef %session, ptr noundef %frame, ptr nocapture noundef readonly %stream) local_unnamed_addr #1 {
 entry:
   %stream_id = getelementptr inbounds i8, ptr %frame, i64 8
   %0 = load i32, ptr %stream_id, align 8
@@ -6754,7 +6754,7 @@ if.then181:                                       ; preds = %land.lhs.true178
   br i1 %cmp183.not, label %if.end192, label %if.then185
 
 if.then185:                                       ; preds = %if.then181
-  %cmp.i165 = icmp sgt i32 %call182, -901
+  %cmp.i165 = icmp ugt i32 %call182, -901
   br i1 %cmp.i165, label %if.end189, label %return
 
 if.end189:                                        ; preds = %if.then185
@@ -6785,7 +6785,7 @@ return:                                           ; preds = %if.end77, %if.end4.
 declare i32 @nghttp2_hd_deflate_change_table_size(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_add_settings(ptr noundef %session, i8 noundef zeroext %flags, ptr noundef %iv, i64 noundef %niv) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_add_settings(ptr noundef %session, i8 noundef zeroext %flags, ptr noundef %iv, i64 noundef %niv) local_unnamed_addr #1 {
 entry:
   %pending_no_rfc7540_priorities = getelementptr inbounds i8, ptr %session, i64 2874
   %0 = load i8, ptr %pending_no_rfc7540_priorities, align 2
@@ -8614,7 +8614,7 @@ return:                                           ; preds = %entry, %if.end5, %s
 declare zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_on_data_received(ptr noundef %session, ptr noundef %frame) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_data_received(ptr noundef %session, ptr noundef %frame) local_unnamed_addr #1 {
 entry:
   %stream_id = getelementptr inbounds i8, ptr %frame, i64 8
   %0 = load i32, ptr %stream_id, align 8
@@ -12047,7 +12047,7 @@ entry:
 declare i64 @nghttp2_frame_trail_padlen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_after_header_block_received(ptr noundef %session) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 1) i32 @session_after_header_block_received(ptr noundef %session) unnamed_addr #1 {
 entry:
   %iframe = getelementptr inbounds i8, ptr %session, i64 728
   %stream_id = getelementptr inbounds i8, ptr %session, i64 736
@@ -12717,7 +12717,7 @@ declare void @nghttp2_frame_settings_init(ptr noundef, i8 noundef zeroext, ptr n
 declare void @nghttp2_frame_settings_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_pack_data(ptr noundef %session, ptr noundef %bufs, i64 noundef %datamax, ptr noundef %frame, ptr noundef %aux_data, ptr noundef %stream) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr noundef %session, ptr noundef %bufs, i64 noundef %datamax, ptr noundef %frame, ptr noundef %aux_data, ptr noundef %stream) local_unnamed_addr #1 {
 entry:
   %data_flags = alloca i32, align 4
   %0 = load ptr, ptr %bufs, align 8
@@ -14557,7 +14557,7 @@ return:                                           ; preds = %if.end5, %if.end2.i
 declare i32 @nghttp2_frame_pack_headers(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_headers_add_pad(ptr noundef %session, ptr noundef nonnull %frame) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 1) i32 @session_headers_add_pad(ptr noundef %session, ptr noundef nonnull %frame) unnamed_addr #1 {
 entry:
   %framebufs2 = getelementptr inbounds i8, ptr %session, i64 656
   %0 = load i64, ptr %frame, align 8

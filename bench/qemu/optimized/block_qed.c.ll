@@ -396,7 +396,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
 entry:
   %le_header = alloca %struct.QEDHeader, align 4
   %0 = load i32, ptr %opts, align 8
@@ -584,7 +584,7 @@ return:                                           ; preds = %if.end25, %out, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -972,21 +972,21 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_readv(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_readv(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
 entry:
   %call = tail call i32 @qed_co_request(ptr noundef %bs, i64 noundef %sector_num, ptr noundef %qiov, i32 noundef %nb_sectors, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_writev(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov, i32 %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_writev(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %call = tail call i32 @qed_co_request(ptr noundef %bs, i64 noundef %sector_num, ptr noundef %qiov, i32 noundef %nb_sectors, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_pwrite_zeroes(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_pwrite_zeroes(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -2212,7 +2212,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_write_header(ptr nocapture noundef readonly %s) #0 {
+define internal range(i32 -2147483648, 1) i32 @qed_write_header(ptr nocapture noundef readonly %s) #0 {
 entry:
   %qiov.i13 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -2353,7 +2353,7 @@ declare zeroext i1 @timer_pending(ptr noundef) local_unnamed_addr #1
 declare void @aio_co_enter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_co_request(ptr noundef %bs, i64 noundef %sector_num, ptr noundef %qiov, i32 noundef %nb_sectors, i32 noundef %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @qed_co_request(ptr noundef %bs, i64 noundef %sector_num, ptr noundef %qiov, i32 noundef %nb_sectors, i32 noundef %flags) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %acb = alloca %struct.QEDAIOCB, align 8
@@ -2423,7 +2423,7 @@ trace_qed_aio_setup.exit:                         ; preds = %entry, %land.lhs.tr
 declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_aio_next_io(ptr noundef %acb) #0 {
+define internal range(i32 -2147483648, 1) i32 @qed_aio_next_io(ptr noundef %acb) #0 {
 entry:
   %_now.i.i31 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8

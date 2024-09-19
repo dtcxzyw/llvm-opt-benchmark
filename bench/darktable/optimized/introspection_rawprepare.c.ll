@@ -1876,7 +1876,7 @@ define void @commit_params(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_check_gain_maps(ptr nocapture readonly %0, ptr noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_check_gain_maps(ptr nocapture readonly %0, ptr noundef writeonly %1) unnamed_addr #1 {
   %3 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -2393,74 +2393,72 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %10 = getelementptr inbounds i8, ptr %5, i64 1840
   %11 = load i32, ptr %10, align 16, !tbaa !139
   %12 = trunc i32 %11 to i16
-  %13 = icmp ne i32 %7, 0
-  %14 = zext i1 %13 to i32
-  %15 = load <4 x i32>, ptr %8, align 4, !tbaa !14
-  store <4 x i32> %15, ptr %3, align 4, !tbaa !14
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  %17 = load <4 x i16>, ptr %9, align 2, !tbaa !52
-  store <4 x i16> %17, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
-  store i16 %12, ptr %18, align 4, !tbaa !52
-  %19 = getelementptr inbounds i8, ptr %3, i64 28
-  store i32 %14, ptr %19, align 4, !tbaa !14
-  %20 = getelementptr inbounds i8, ptr %0, i64 492
-  store i32 1, ptr %20, align 4, !tbaa !146
-  %21 = tail call i32 @dt_image_is_rawprepare_supported(ptr noundef nonnull %6) #21
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %45, label %23
+  %13 = load <4 x i32>, ptr %8, align 4, !tbaa !14
+  store <4 x i32> %13, ptr %3, align 4, !tbaa !14
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = load <4 x i16>, ptr %9, align 2, !tbaa !52
+  store <4 x i16> %15, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  store i16 %12, ptr %16, align 4, !tbaa !52
+  %17 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 %7, ptr %17, align 4, !tbaa !14
+  %18 = getelementptr inbounds i8, ptr %0, i64 492
+  store i32 1, ptr %18, align 4, !tbaa !146
+  %19 = tail call i32 @dt_image_is_rawprepare_supported(ptr noundef nonnull %6) #21
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %43, label %21
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %5, i64 1532
-  %25 = load i32, ptr %24, align 4, !tbaa !138
-  %26 = and i32 %25, 128
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %33, label %28
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %5, i64 1532
+  %23 = load i32, ptr %22, align 4, !tbaa !138
+  %24 = and i32 %23, 128
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %31, label %26
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr %10, align 16, !tbaa !139
-  %30 = icmp eq i32 %29, 1
-  %31 = icmp eq i32 %29, 1065353216
-  %32 = or i1 %30, %31
-  br label %41
+26:                                               ; preds = %21
+  %27 = load i32, ptr %10, align 16, !tbaa !139
+  %28 = icmp eq i32 %27, 1
+  %29 = icmp eq i32 %27, 1065353216
+  %30 = or i1 %28, %29
+  br label %39
 
-33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %5, i64 1600
-  %35 = load i32, ptr %34, align 16, !tbaa !140
-  %36 = icmp eq i32 %35, 1
-  br i1 %36, label %37, label %41
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds i8, ptr %5, i64 1600
+  %33 = load i32, ptr %32, align 16, !tbaa !140
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %39
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %5, i64 1604
-  %39 = load i32, ptr %38, align 4, !tbaa !141
-  %40 = icmp eq i32 %39, 1
-  br label %41
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %5, i64 1604
+  %37 = load i32, ptr %36, align 4, !tbaa !141
+  %38 = icmp eq i32 %37, 1
+  br label %39
 
-41:                                               ; preds = %37, %33, %28
-  %42 = phi i1 [ %32, %28 ], [ false, %33 ], [ %40, %37 ]
-  %43 = xor i1 %42, true
-  %44 = zext i1 %43 to i32
-  br label %45
+39:                                               ; preds = %35, %31, %26
+  %40 = phi i1 [ %30, %26 ], [ false, %31 ], [ %38, %35 ]
+  %41 = xor i1 %40, true
+  %42 = zext i1 %41 to i32
+  br label %43
 
-45:                                               ; preds = %41, %1
-  %46 = phi i32 [ 0, %1 ], [ %44, %41 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 676
-  store i32 %46, ptr %47, align 4, !tbaa !147
-  %48 = getelementptr inbounds i8, ptr %0, i64 816
-  %49 = load ptr, ptr %48, align 16, !tbaa !148
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %57, label %51
+43:                                               ; preds = %39, %1
+  %44 = phi i32 [ 0, %1 ], [ %42, %39 ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 676
+  store i32 %44, ptr %45, align 4, !tbaa !147
+  %46 = getelementptr inbounds i8, ptr %0, i64 816
+  %47 = load ptr, ptr %46, align 16, !tbaa !148
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %55, label %49
 
-51:                                               ; preds = %45
-  %52 = tail call i64 @gtk_stack_get_type() #24
-  %53 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %49, i64 noundef %52) #21
-  %54 = load i32, ptr %47, align 4, !tbaa !147
-  %55 = icmp eq i32 %54, 0
-  %56 = select i1 %55, ptr @.str.10, ptr @.str.9
-  tail call void @gtk_stack_set_visible_child_name(ptr noundef %53, ptr noundef nonnull %56) #21
-  br label %57
+49:                                               ; preds = %43
+  %50 = tail call i64 @gtk_stack_get_type() #24
+  %51 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %47, i64 noundef %50) #21
+  %52 = load i32, ptr %45, align 4, !tbaa !147
+  %53 = icmp eq i32 %52, 0
+  %54 = select i1 %53, ptr @.str.10, ptr @.str.9
+  tail call void @gtk_stack_set_visible_child_name(ptr noundef %51, ptr noundef nonnull %54) #21
+  br label %55
 
-57:                                               ; preds = %51, %45
+55:                                               ; preds = %49, %43
   ret void
 }
 

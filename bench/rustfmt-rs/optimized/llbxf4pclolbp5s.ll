@@ -24210,7 +24210,7 @@ define hidden noundef align 8 ptr @"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17h0a3584381d45d27eE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h0a3584381d45d27eE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24244,7 +24244,7 @@ define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17h0a3584381
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h151954f71d95b327E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h151954f71d95b327E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24279,7 +24279,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h151954f71d95b327E.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 0) i64 @_ZN8thin_vec10alloc_size17h28a007b9423f6f14E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h28a007b9423f6f14E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24305,7 +24305,7 @@ define hidden noundef range(i64 16, 0) i64 @_ZN8thin_vec10alloc_size17h28a007b94
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17h30f206c6d8f99ca6E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h30f206c6d8f99ca6E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24339,7 +24339,7 @@ define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17h30f206c6d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h3addc34b2ccc04d1E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, 9223372036854775793) i64 @_ZN8thin_vec10alloc_size17h3addc34b2ccc04d1E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24365,7 +24365,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h3addc34b2ccc04d1E.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17h450081605f1db74fE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h450081605f1db74fE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24399,7 +24399,7 @@ define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17h450081605
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h497683c0988215b3E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, 9223372036854775777) i64 @_ZN8thin_vec10alloc_size17h497683c0988215b3E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24425,7 +24425,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h497683c0988215b3E.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 0) i64 @_ZN8thin_vec10alloc_size17h5a4d7b70f18a3498E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h5a4d7b70f18a3498E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24450,7 +24450,7 @@ define hidden noundef range(i64 16, 0) i64 @_ZN8thin_vec10alloc_size17h5a4d7b70f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h660e82e9acd196c7E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, 9223372036854775793) i64 @_ZN8thin_vec10alloc_size17h660e82e9acd196c7E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24476,7 +24476,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h660e82e9acd196c7E.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h7e352a9947942459E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h7e352a9947942459E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24511,7 +24511,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h7e352a9947942459E.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h818e960372902f7eE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h818e960372902f7eE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24546,7 +24546,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h818e960372902f7eE.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h87134f9be0395589E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h87134f9be0395589E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24581,7 +24581,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h87134f9be0395589E.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17h88ef239c0c27f88cE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17h88ef239c0c27f88cE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24616,7 +24616,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17h88ef239c0c27f88cE.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 0) i64 @_ZN8thin_vec10alloc_size17hcd1488b7a4538474E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17hcd1488b7a4538474E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24641,7 +24641,7 @@ define hidden noundef range(i64 16, 0) i64 @_ZN8thin_vec10alloc_size17hcd1488b7a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17hcd3160816af7f10cE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17hcd3160816af7f10cE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24675,7 +24675,7 @@ define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17hcd3160816
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17hd5611508e1112741E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17hd5611508e1112741E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24709,7 +24709,7 @@ define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17hd5611508e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17he0eb621d1dee7844E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17he0eb621d1dee7844E.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24744,7 +24744,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17he0eb621d1dee7844E.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN8thin_vec10alloc_size17hec4990ae375f1b6fE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, 9223372036854775793) i64 @_ZN8thin_vec10alloc_size17hec4990ae375f1b6fE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
@@ -24770,7 +24770,7 @@ define hidden noundef i64 @_ZN8thin_vec10alloc_size17hec4990ae375f1b6fE.llvm.131
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 16, 9) i64 @_ZN8thin_vec10alloc_size17hfdede637768ccbbeE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10alloc_size17hfdede637768ccbbeE.llvm.13158159170862922693(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %.split, label %.split8
